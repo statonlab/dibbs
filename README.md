@@ -6,6 +6,7 @@
 * RNASeq Variant discovery (between samples). June 1, 2016
 * Gene co-expression network construction.	July 1, 2016
 * MiRNA analysis. August 1, 2016
+
 ### DNA
 * DNASeq Re-sequencing alignment. September 1, 2016
 * DNASeq Variant discovery (against the reference). October 1, 2016

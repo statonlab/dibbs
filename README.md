@@ -1,6 +1,9 @@
 ## Galaxy workflows schedule
 ### RNA
 * Transcriptome assembly. May 1, 2016 
+    * Input: raw reads in fastq format
+    * Tool: Trimmomatic -> Trinity
+    * Output: fasta file 
 * RNASeq alignment to a reference
     * Input: raw reads in fastq format
     * Input: reference genome
@@ -21,9 +24,16 @@
       * Tool: mpileup -> samtools -> need to investigate last step - can we use vcftools or custom script to filter results
       * Output: filtered vcf
       * Downstream possible feature: deal with ploidy, SNPEff to determine impact of variation 
-* Gene co-expression network construction.	July 1, 2016
-* MiRNA analysis. August 1, 2016
-
+* Gene co-expression network construction.	July 1, 2016 (Talk to Miriam about this one)
+      * Input: bam file (either all in 1 file w/ RG or each lib in different file)
+      * Tool: htseq -> WGCNA
+      * Output: network file?
+* MiRNA analysis. August 1, 2016  (Talk to Thomas about this one)
+      * Input: raw reads in fastq format
+      * Input: MIRBase gff3 for organism (if available)
+      * Tool: trimmomatic (stringent length filter and adapter) -> compare to MIRBase ->  determine known/unknown miRNA loci 
+      * Output: raw counts of known miRNAs by library
+      * Downstream possible feature: map to reference and discover novel elements, normalize counts
 
 ### DNA
 * DNASeq Re-sequencing alignment. September 1, 2016

@@ -37,6 +37,18 @@
 
 ### DNA
 * DNASeq Re-sequencing alignment. September 1, 2016
+    * Input: raw reads in fastq format
+    * Input: reference genome
+    * Tool: Trimmomatic -> Bowtie2
+    * Output: bam file (either all in 1 file w/ RG or each lib in different file)
 * DNASeq Variant discovery (against the reference). October 1, 2016
+      * Input: bam file (either all in 1 file w/ RG or each lib in different file)
+      * Tool: mpileup -> samtools
+      * Output: vcf
+      * Downstream possible feature: deal with ploidy, SNPEff to determine impact of variation 
 * DNASeq Variant discovery (between samples). October 1, 2016
-* Prediction of functional genetic variants (annovar). November 1, 2016
+      * Input: bam file (either all in 1 file w/ RG or each lib in different file)
+      * Tool: mpileup -> samtools -> need to investigate last step - can we use vcftools or custom script to filter results
+      * Output: filtered vcf
+      * Downstream possible feature: deal with ploidy, SNPEff to determine impact of variation 
+* Prediction of functional genetic variants (SNPEff or annovar). November 1, 2016

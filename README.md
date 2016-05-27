@@ -12,7 +12,15 @@
     * Tool: HTSeq -> DESeq2
     * Output: DESeq2 matrix file with p-values
 * RNASeq Variant discovery (against the reference). June 1, 2016
+      * Input: bam file (either all in 1 file w/ RG or each lib in different file)
+      * Tool: mpileup -> samtools
+      * Output: vcf
+      * Downstream possible feature: deal with ploidy, SNPEff to determine impact of variation 
 * RNASeq Variant discovery (between samples). June 1, 2016
+      * Input: bam file (either all in 1 file w/ RG or each lib in different file)
+      * Tool: mpileup -> samtools -> need to investigate last step - can we use vcftools or custom script to filter results
+      * Output: filtered vcf
+      * Downstream possible feature: deal with ploidy, SNPEff to determine impact of variation 
 * Gene co-expression network construction.	July 1, 2016
 * MiRNA analysis. August 1, 2016
 

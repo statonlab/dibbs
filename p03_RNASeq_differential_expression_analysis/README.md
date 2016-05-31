@@ -8,3 +8,6 @@ In this gff file, the ID attribute is __ID__. So replace __gene_Id__ with __ID__
 
 ![ID_Attribute](https://github.com/statonlab/dibbs/blob/master/p03_RNASeq_differential_expression_analysis/ID-Attribute.png)
 
+
+
+[useful link](https://github.com/bgruening/training-material/blob/master/rna-seq/rna-seq.md)

@@ -1,4 +1,4 @@
-## Tools list
+## Tool list
 * fastqc
 * trimmomatic
 * tophat

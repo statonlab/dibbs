@@ -7,4 +7,5 @@
 * sort
 * htseq-count
 * deseq2
+* mpileup
 * more...

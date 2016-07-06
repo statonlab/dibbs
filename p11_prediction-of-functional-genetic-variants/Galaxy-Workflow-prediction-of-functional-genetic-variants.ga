@@ -1,0 +1,139 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "prediction-of-functional-genetic-variants", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 200
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "7cd0f209-a1c2-4ab6-b495-ae5adda0dd6e"
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {
+                "reference_source|input_bams_0|input_bam": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "FreeBayes", 
+            "outputs": [
+                {
+                    "name": "output_vcf", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "output_failed_alleles_bed", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "output_trace", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 200, 
+                "top": 320
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/freebayes/freebayes/0.3", 
+            "tool_state": "{\"__page__\": 0, \"reference_source\": \"{\\\"ref_file\\\": \\\"hg19\\\", \\\"reference_source_selector\\\": \\\"cached\\\", \\\"input_bams\\\": [{\\\"__index__\\\": 0, \\\"input_bam\\\": null}], \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"options_type\": \"{\\\"min_coverage\\\": \\\"0\\\", \\\"options_type_selector\\\": \\\"simple_w_filters\\\", \\\"__current_case__\\\": 2}\", \"target_limit_type\": \"{\\\"target_limit_type_selector\\\": \\\"do_not_limit\\\", \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "0.3", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "eb7dd4ef-e946-455b-ba97-0121a3229b38"
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "input": {
+                    "id": 1, 
+                    "output_name": "output_vcf"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "SnpEff", 
+            "outputs": [
+                {
+                    "name": "snpeff_output", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "statsFile", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 470, 
+                "top": 204
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/4.0.0", 
+            "tool_state": "{\"spliceSiteSize\": \"\\\"2\\\"\", \"filterHomHet\": \"\\\"no_filter\\\"\", \"filterOut\": \"null\", \"inputFormat\": \"\\\"vcf\\\"\", \"filterIn\": \"\\\"no_filter\\\"\", \"outputConditional\": \"{\\\"outputFormat\\\": \\\"vcf\\\", \\\"__current_case__\\\": 0}\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"udLength\": \"\\\"5000\\\"\", \"generate_stats\": \"\\\"True\\\"\", \"noLog\": \"\\\"True\\\"\", \"chr\": \"\\\"\\\"\", \"intervals\": \"null\", \"snpDb\": \"{\\\"genome_version\\\": \\\"hg19\\\", \\\"genomeSrc\\\": \\\"named\\\", \\\"__current_case__\\\": 2}\", \"offset\": \"\\\"default\\\"\", \"input\": \"null\", \"transcripts\": \"null\", \"chromInfo\": \"\\\"/mnt/galaxyIndices/genomes/hg19/len/hg19.len\\\"\", \"annotations\": \"null\"}", 
+            "tool_version": "4.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "bb6102d2-a34d-4a34-859d-d77b461585e6"
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "input": {
+                    "id": 2, 
+                    "output_name": "snpeff_output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Select", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 769, 
+                "top": 202
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "Grep1", 
+            "tool_state": "{\"__page__\": 0, \"pattern\": \"\\\"missense_variant\\\"\", \"invert\": \"\\\"false\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/mnt/galaxyIndices/genomes/hg19/len/hg19.len\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "ea5a5b6a-e3ba-4b62-9896-4efb893a7b5d"
+        }
+    }, 
+    "uuid": "0f02c34a-081d-4a76-9e85-2122ab0dd8a5"
+}

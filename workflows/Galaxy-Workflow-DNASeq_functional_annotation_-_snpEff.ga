@@ -1,0 +1,134 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "DNASeq functional annotation - snpEff", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff_download/4.1.0", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": null, 
+            "name": "SnpEff Download", 
+            "outputs": [
+                {
+                    "name": "snpeff_db", 
+                    "type": "snpeffdb"
+                }
+            ], 
+            "position": {
+                "left": 172, 
+                "top": 201
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff_download/4.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "698ef30638a8", 
+                "name": "snpeff", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"genome_version\": \"\\\"FicAlb_1.4.76\\\"\", \"__page__\": 0}", 
+            "tool_version": "4.1.0", 
+            "type": "tool", 
+            "uuid": "0e9327f2-389e-4e8d-a954-99dae276bd17", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff_databases/4.1.0", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": null, 
+            "name": "SnpEff Available Databases", 
+            "outputs": [
+                {
+                    "name": "snpeff_dbs", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 171, 
+                "top": 318
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff_databases/4.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "698ef30638a8", 
+                "name": "snpeff", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "4.1.0", 
+            "type": "tool", 
+            "uuid": "517c634f-7096-481f-8ba4-bf467fb47339", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/4.1.0", 
+            "id": 2, 
+            "input_connections": {
+                "input": {
+                    "id": 1, 
+                    "output_name": "snpeff_dbs"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "intervals"
+                }, 
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "snpDb"
+                }, 
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "input"
+                }, 
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "transcripts"
+                }
+            ], 
+            "label": null, 
+            "name": "SnpEff", 
+            "outputs": [
+                {
+                    "name": "snpeff_output", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "statsFile", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 420, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/4.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "698ef30638a8", 
+                "name": "snpeff", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"spliceSiteSize\": \"\\\"2\\\"\", \"filter\": \"{\\\"specificEffects\\\": \\\"no\\\", \\\"__current_case__\\\": 0}\", \"filterOut\": \"null\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"inputFormat\": \"\\\"vcf\\\"\", \"__page__\": 0, \"outputConditional\": \"{\\\"outputFormat\\\": \\\"vcf\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"udLength\": \"\\\"5000\\\"\", \"generate_stats\": \"\\\"true\\\"\", \"noLog\": \"\\\"true\\\"\", \"chr\": \"\\\"\\\"\", \"intervals\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"snpDb\": \"{\\\"extra_annotations\\\": null, \\\"snpeff_db\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"regulation\\\": null, \\\"__current_case__\\\": 1, \\\"genomeSrc\\\": \\\"history\\\"}\", \"offset\": \"\\\"default\\\"\", \"spliceRegion\": \"{\\\"__current_case__\\\": 0, \\\"setSpliceRegions\\\": \\\"no\\\"}\", \"transcripts\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"annotations\": \"null\"}", 
+            "tool_version": "4.1.0", 
+            "type": "tool", 
+            "uuid": "15fc9a46-65ca-4bbe-b15f-a339d9b161a5", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "e8e1cbc5-1f72-4b1f-954c-8fbb366615cc"
+}

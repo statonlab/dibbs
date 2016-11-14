@@ -1,3 +1,30 @@
+## Docker galaxy dibbs
+
+* github repository: [https://github.com/MingChen0919/docker-galaxy-dibbss](https://github.com/MingChen0919/docker-galaxy-dibbss)
+* Build docker image from the github repository
+```
+git clone https://github.com/MingChen0919/docker-galaxy-dibbss.git
+cd docker-galaxy-dibbs
+docker build -t "galaxy-dibbs" .
+```
+* Start a container and launch galaxy
+
+```
+docker run -i -t -p 8080:80 -p 8021:21 -p 8022:22 \
+  -e "GALAXY_CONFIG_ADMIN_USERS=your_email@gmail.com" \
+  mingchen0919/galaxy-dibbs \
+  /bin/bash
+  
+startup
+```
+
+* Go to: [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
+* Register a account with the email address: `your_email@gmail.com`, then you will have admin access.
+
+
+
+
+
 ## Galaxy workflows schedule
 ### RNA
 * (P01)Transcriptome assembly. May 1, 2016 

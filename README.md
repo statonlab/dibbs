@@ -19,7 +19,7 @@ startup
 ```
 
 * Go to: [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
-* Register a account with the email address: `your_email@gmail.com`, then you will have admin access.
+* Register an account with the email address: `your_email@gmail.com`, then you will have admin access.
 
 
 

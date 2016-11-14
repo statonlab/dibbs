@@ -14,7 +14,10 @@ docker run -i -t -p 8080:80 -p 8021:21 -p 8022:22 \
   -e "GALAXY_CONFIG_ADMIN_USERS=your_email@gmail.com" \
   mingchen0919/galaxy-dibbs \
   /bin/bash
-  
+```
+
+```
+## Launch galaxy
 startup
 ```
 

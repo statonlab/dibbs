@@ -1,0 +1,283 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "variant-calling-and-annotation", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": null, 
+            "name": "FreeBayes", 
+            "outputs": [
+                {
+                    "name": "output_vcf", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "output_failed_alleles_bed", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "output_trace", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 350.109375, 
+                "top": 199.9921875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/freebayes/freebayes/0.3", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"options_type\": \"{\\\"min_coverage\\\": \\\"0\\\", \\\"options_type_selector\\\": \\\"simple_w_filters\\\", \\\"__current_case__\\\": 2}\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"hg19\\\"}, \\\"reference_source_selector\\\": \\\"cached\\\", \\\"input_bams\\\": [{\\\"__index__\\\": 0, \\\"input_bam\\\": null}], \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/mnt/galaxyIndices/genomes/hg19/len/hg19.len\\\"\", \"target_limit_type\": \"{\\\"target_limit_type_selector\\\": \\\"do_not_limit\\\", \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "0.3", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "6bc0bf82-c147-47b0-be64-82a5a9fab784"
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Unified Genotyper", 
+            "outputs": [
+                {
+                    "name": "output_vcf", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "output_metrics", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 350.109375, 
+                "top": 390.984375
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/gatk2/gatk2_unified_genotyper/2.8.0", 
+            "tool_state": "{\"__page__\": 0, \"dbsnp_rod_bind_type\": \"{\\\"dbsnp_rod_bind_type_selector\\\": \\\"set_dbsnp\\\", \\\"dbsnp_input_rod\\\": null, \\\"__current_case__\\\": 1, \\\"dbsnp_rod_name\\\": \\\"dbsnp\\\"}\", \"genotype_likelihoods_model\": \"\\\"BOTH\\\"\", \"__rerun_remap_job_id__\": null, \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"advanced\\\", \\\"pedigree_string_repeat\\\": [], \\\"disable_experimental_low_memory_sharding\\\": \\\"False\\\", \\\"pedigree_validation_type\\\": \\\"STRICT\\\", \\\"pedigree\\\": [], \\\"input_interval_repeat\\\": [{\\\"input_intervals\\\": null, \\\"__index__\\\": 0}], \\\"fix_misencoded_quality_scores\\\": \\\"False\\\", \\\"baq\\\": \\\"OFF\\\", \\\"input_exclude_interval_repeat\\\": [], \\\"default_base_qualities\\\": \\\"-1\\\", \\\"downsampling_type\\\": {\\\"downsampling_type_selector\\\": \\\"NONE\\\", \\\"__current_case__\\\": 0}, \\\"interval_merging\\\": \\\"ALL\\\", \\\"interval_set_rule\\\": \\\"UNION\\\", \\\"non_deterministic_random_seed\\\": \\\"False\\\", \\\"__current_case__\\\": 1, \\\"interval_padding\\\": \\\"0\\\", \\\"read_filter\\\": [], \\\"validation_strictness\\\": \\\"STRICT\\\", \\\"baq_gap_open_penalty\\\": \\\"40.0\\\", \\\"read_group_black_list_repeat\\\": [], \\\"use_original_qualities\\\": \\\"False\\\"}\", \"standard_min_confidence_threshold_for_emitting\": \"\\\"30.0\\\"\", \"analysis_param_type\": \"{\\\"analysis_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"standard_min_confidence_threshold_for_calling\": \"\\\"30.0\\\"\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"hg19\\\"}, \\\"reference_source_selector\\\": \\\"cached\\\", \\\"input_bams\\\": [{\\\"__index__\\\": 0, \\\"input_bam\\\": null}], \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/mnt/galaxyIndices/genomes/hg19/len/hg19.len\\\"\"}", 
+            "tool_version": "2.8.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "8c133e87-a322-490f-8ab9-5ae0beeeb759"
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "input": {
+                    "id": 0, 
+                    "output_name": "output_vcf"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "SnpEff", 
+            "outputs": [
+                {
+                    "name": "snpeff_output", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "statsFile", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 678.1171875, 
+                "top": 199.9921875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/4.0.0", 
+            "tool_state": "{\"spliceSiteSize\": \"\\\"2\\\"\", \"filterHomHet\": \"\\\"no_filter\\\"\", \"filterOut\": \"null\", \"inputFormat\": \"\\\"vcf\\\"\", \"filterIn\": \"\\\"no_filter\\\"\", \"outputConditional\": \"{\\\"outputFormat\\\": \\\"vcf\\\", \\\"__current_case__\\\": 0}\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"udLength\": \"\\\"5000\\\"\", \"generate_stats\": \"\\\"True\\\"\", \"noLog\": \"\\\"True\\\"\", \"chr\": \"\\\"\\\"\", \"intervals\": \"null\", \"snpDb\": \"{\\\"extra_annotations\\\": {\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": null}, \\\"regulation\\\": {\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": null}, \\\"genomeVersion\\\": \\\"UMD3.1.76\\\", \\\"genomeSrc\\\": \\\"cached\\\", \\\"__current_case__\\\": 0}\", \"offset\": \"\\\"default\\\"\", \"input\": \"null\", \"transcripts\": \"null\", \"annotations\": \"null\"}", 
+            "tool_version": "4.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "7f8354f2-d9b5-4464-8e86-8f7602954ac1"
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "input": {
+                    "id": 0, 
+                    "output_name": "output_vcf"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Select", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 686.0625, 
+                "top": 1028.9296875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "Grep1", 
+            "tool_state": "{\"__page__\": 0, \"pattern\": \"\\\"^#\\\"\", \"invert\": \"\\\"true\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/mnt/galaxyIndices/genomes/hg19/len/hg19.len\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "f83b957a-47a1-49b0-b540-adc8df1b58c9"
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input": {
+                    "id": 1, 
+                    "output_name": "output_vcf"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "SnpEff", 
+            "outputs": [
+                {
+                    "name": "snpeff_output", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "statsFile", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 681.09375, 
+                "top": 440.953125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/4.0.0", 
+            "tool_state": "{\"spliceSiteSize\": \"\\\"2\\\"\", \"filterHomHet\": \"\\\"no_filter\\\"\", \"filterOut\": \"null\", \"inputFormat\": \"\\\"vcf\\\"\", \"filterIn\": \"\\\"no_filter\\\"\", \"outputConditional\": \"{\\\"outputFormat\\\": \\\"vcf\\\", \\\"__current_case__\\\": 0}\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"udLength\": \"\\\"5000\\\"\", \"generate_stats\": \"\\\"True\\\"\", \"noLog\": \"\\\"True\\\"\", \"chr\": \"\\\"\\\"\", \"intervals\": \"null\", \"snpDb\": \"{\\\"genome_version\\\": \\\"hg19\\\", \\\"genomeSrc\\\": \\\"named\\\", \\\"__current_case__\\\": 2}\", \"offset\": \"\\\"default\\\"\", \"input\": \"null\", \"transcripts\": \"null\", \"chromInfo\": \"\\\"/mnt/galaxyIndices/genomes/hg19/len/hg19.len\\\"\", \"annotations\": \"null\"}", 
+            "tool_version": "4.0.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "cba4f5ae-7156-433c-8128-6a9d33e01fc0"
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "reference_source|variants_0|input_variant": {
+                    "id": 0, 
+                    "output_name": "output_vcf"
+                }, 
+                "reference_source|variants_1|input_variant": {
+                    "id": 1, 
+                    "output_name": "output_vcf"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Eval Variants", 
+            "outputs": [
+                {
+                    "name": "output_report", 
+                    "type": "gatk_report"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 684.09375, 
+                "top": 683.953125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/gatk2/gatk2_variant_eval/2.8.0", 
+            "tool_state": "{\"__page__\": 0, \"comp_rod_bind\": \"[]\", \"dbsnp_rod_bind_type\": \"{\\\"dbsnp_rod_bind_type_selector\\\": \\\"set_dbsnp\\\", \\\"dbsnp_known_names\\\": \\\"False\\\", \\\"dbsnp_input_rod\\\": null, \\\"__current_case__\\\": 1, \\\"dbsnp_rod_name\\\": \\\"dbsnp\\\"}\", \"__rerun_remap_job_id__\": null, \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"analysis_param_type\": \"{\\\"known_cnvs\\\": null, \\\"strat_intervals\\\": null, \\\"__current_case__\\\": 1, \\\"do_not_use_all_standard_modules\\\": \\\"True\\\", \\\"only_variants_of_type\\\": [], \\\"mendelian_violation_qual_threshold\\\": \\\"50\\\", \\\"ancestral_alignments\\\": null, \\\"do_not_use_all_standard_stratifications\\\": \\\"False\\\", \\\"analysis_param_type_selector\\\": \\\"advanced\\\", \\\"stratification_modules\\\": null, \\\"samples\\\": [], \\\"num_samples\\\": \\\"0\\\", \\\"eval_modules\\\": [\\\"CompOverlap\\\", \\\"TiTvVariantEvaluator\\\"], \\\"stratifications\\\": [], \\\"min_phase_quality\\\": \\\"10.0\\\"}\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": \\\"hg19\\\"}, \\\"reference_source_selector\\\": \\\"cached\\\", \\\"variants\\\": [{\\\"__index__\\\": 0, \\\"input_variant\\\": null}, {\\\"__index__\\\": 1, \\\"input_variant\\\": null}], \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/mnt/galaxyIndices/genomes/hg19/len/hg19.len\\\"\"}", 
+            "tool_version": "2.8.0", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "b854155d-2e43-45da-beb9-9c94a9e9cc29"
+        }, 
+        "6": {
+            "annotation": "", 
+            "id": 6, 
+            "input_connections": {
+                "input": {
+                    "id": 1, 
+                    "output_name": "output_vcf"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Select", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "input"
+                }
+            ], 
+            "position": {
+                "left": 687.9453125, 
+                "top": 1130.8203125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "Grep1", 
+            "tool_state": "{\"__page__\": 0, \"pattern\": \"\\\"^#\\\"\", \"invert\": \"\\\"true\\\"\", \"input\": \"null\", \"chromInfo\": \"\\\"/mnt/galaxyIndices/genomes/hg19/len/hg19.len\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "fb465e1d-b231-48f4-910f-12f897e5b0d6"
+        }, 
+        "7": {
+            "annotation": "", 
+            "id": 7, 
+            "input_connections": {
+                "inputFile1": {
+                    "id": 3, 
+                    "output_name": "out_file1"
+                }, 
+                "inputFile2": {
+                    "id": 6, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "proportional venn", 
+            "outputs": [
+                {
+                    "name": "outPath", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 1006.1015625, 
+                "top": 199.9921875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/idot/prop_venn/prop_venn/0.5", 
+            "tool_state": "{\"__page__\": 0, \"asName1\": \"\\\"FreeBayes\\\"\", \"asName2\": \"\\\"UnifiedGenotyper\\\"\", \"title\": \"\\\"FreeBayes vs UnifiedGenotyper\\\"\", \"column1\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"twoThree\": \"{\\\"tt\\\": \\\"two\\\", \\\"__current_case__\\\": 0}\", \"inputFile1\": \"null\", \"inputFile2\": \"null\", \"column2\": \"\\\"1\\\"\", \"chromInfo\": \"\\\"/mnt/galaxyIndices/genomes/hg19/len/hg19.len\\\"\", \"size\": \"\\\"300\\\"\"}", 
+            "tool_version": "0.5", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "5d29270c-b410-4469-a93e-f288cde99f3e"
+        }
+    }, 
+    "uuid": "0440fa48-eeb7-4bcf-b505-879df487ab3d"
+}

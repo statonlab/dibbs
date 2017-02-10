@@ -1,0 +1,215 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "differential-gene-expression-analysis", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 252.9140625, 
+                "top": 199.9921875
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "5370a71b-94e5-4892-9b56-e7a62b2f65fe"
+        }, 
+        "1": {
+            "annotation": "", 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 252.9140625, 
+                "top": 286.9921875
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "user_outputs": [], 
+            "uuid": "db29d798-1d61-4c00-af93-bcf59e704a3c"
+        }, 
+        "2": {
+            "annotation": "", 
+            "id": 2, 
+            "input_connections": {
+                "gfffile": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "samfiles": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "SAM/BAM to count matrix", 
+            "outputs": [
+                {
+                    "name": "outfile", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 497.90625, 
+                "top": 199.9921875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/fubar/htseq_bams_to_count_matrix/htseqsams2mxlocal/0.5", 
+            "tool_state": "{\"__page__\": 0, \"feature_type\": \"\\\"exon\\\"\", \"title\": \"\\\"bams to DGE count matrix\\\"\", \"__rerun_remap_job_id__\": null, \"stranded\": \"\\\"False\\\"\", \"gfffile\": \"null\", \"id_attr\": \"\\\"gene_name\\\"\", \"filter_extras\": \"\\\"\\\"\", \"samfiles\": \"null\", \"mapqMin\": \"\\\"5\\\"\", \"chromInfo\": \"\\\"/mnt/galaxy/galaxy-app/tool-data/len/sacCer2.len\\\"\", \"model\": \"\\\"union\\\"\"}", 
+            "tool_version": "0.5", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "14e29529-f691-4d32-ae5d-9562c2f1c797"
+        }, 
+        "3": {
+            "annotation": "", 
+            "id": 3, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "outfile"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Differential_Count", 
+            "outputs": [
+                {
+                    "name": "out_edgeR", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "out_DESeq2", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "out_VOOM", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 823.921875, 
+                "top": 199.9921875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/fubar/differential_count_models/rgdifferentialcount/0.28", 
+            "tool_state": "{\"doVoom\": \"\\\"F\\\"\", \"fQ\": \"\\\"0.3\\\"\", \"input1\": \"null\", \"DESeq2\": \"{\\\"DESeq_fitType\\\": \\\"parametric\\\", \\\"__current_case__\\\": 0, \\\"doDESeq2\\\": \\\"T\\\"}\", \"title\": \"\\\"Differential_Counts_DESeq2\\\"\", \"__page__\": 0, \"useNDF\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"fdrthresh\": \"\\\"0.05\\\"\", \"subjectids\": \"\\\"\\\"\", \"fdrtype\": \"\\\"fdr\\\"\", \"Treat_cols\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": [\\\"2\\\", \\\"3\\\", \\\"4\\\"]}\", \"edgeR\": \"{\\\"doedgeR\\\": \\\"F\\\", \\\"__current_case__\\\": 1}\", \"control_name\": \"\\\"chem\\\"\", \"treatment_name\": \"\\\"batch\\\"\", \"Control_cols\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": [\\\"5\\\", \\\"6\\\", \\\"7\\\"]}\", \"chromInfo\": \"\\\"/mnt/galaxy/galaxy-app/tool-data/len/sacCer2.len\\\"\"}", 
+            "tool_version": "0.28", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "eb147cc4-8339-4bd2-b27f-d48daa592475"
+        }, 
+        "4": {
+            "annotation": "", 
+            "id": 4, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "outfile"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Differential_Count", 
+            "outputs": [
+                {
+                    "name": "out_edgeR", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "out_DESeq2", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "out_VOOM", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 823.921875, 
+                "top": 436.9921875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/fubar/differential_count_models/rgdifferentialcount/0.28", 
+            "tool_state": "{\"doVoom\": \"\\\"F\\\"\", \"fQ\": \"\\\"0.3\\\"\", \"input1\": \"null\", \"DESeq2\": \"{\\\"__current_case__\\\": 1, \\\"doDESeq2\\\": \\\"F\\\"}\", \"title\": \"\\\"Differential_Counts_edgeR\\\"\", \"__page__\": 0, \"useNDF\": \"\\\"False\\\"\", \"__rerun_remap_job_id__\": null, \"fdrthresh\": \"\\\"0.05\\\"\", \"subjectids\": \"\\\"\\\"\", \"fdrtype\": \"\\\"fdr\\\"\", \"Treat_cols\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": [\\\"2\\\", \\\"3\\\", \\\"4\\\"]}\", \"edgeR\": \"{\\\"edgeR_priordf\\\": \\\"10\\\", \\\"edgeR_robust_method\\\": \\\"ordinary\\\", \\\"doedgeR\\\": \\\"T\\\", \\\"__current_case__\\\": 0}\", \"control_name\": \"\\\"chem\\\"\", \"treatment_name\": \"\\\"batch\\\"\", \"Control_cols\": \"{\\\"__class__\\\": \\\"UnvalidatedValue\\\", \\\"value\\\": [\\\"5\\\", \\\"6\\\", \\\"7\\\"]}\", \"chromInfo\": \"\\\"/mnt/galaxy/galaxy-app/tool-data/len/sacCer2.len\\\"\"}", 
+            "tool_version": "0.28", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "f9560d81-94f6-4acf-bdce-b4b0c5104a66"
+        }, 
+        "5": {
+            "annotation": "", 
+            "id": 5, 
+            "input_connections": {
+                "inputFile1": {
+                    "id": 3, 
+                    "output_name": "out_DESeq2"
+                }, 
+                "twoThree|inputFile3": {
+                    "id": 4, 
+                    "output_name": "out_edgeR"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "proportional venn", 
+            "outputs": [
+                {
+                    "name": "outPath", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 1151.90625, 
+                "top": 199.9921875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/idot/prop_venn/prop_venn/0.5", 
+            "tool_state": "{\"__page__\": 0, \"asName1\": \"\\\"A\\\"\", \"asName2\": \"\\\"B\\\"\", \"title\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"twoThree\": \"{\\\"tt\\\": \\\"three\\\", \\\"inputFile3\\\": null, \\\"column3\\\": \\\"0\\\", \\\"__current_case__\\\": 1, \\\"asName3\\\": \\\"C\\\"}\", \"inputFile1\": \"null\", \"inputFile2\": \"null\", \"column2\": \"\\\"0\\\"\", \"column1\": \"\\\"0\\\"\", \"size\": \"\\\"300\\\"\"}", 
+            "tool_version": "0.5", 
+            "type": "tool", 
+            "user_outputs": [], 
+            "uuid": "b492fffa-336e-445d-b67e-468076099b3a"
+        }
+    }, 
+    "uuid": "286a0376-ef2d-42a8-afc7-5540ce1b8e29"
+}

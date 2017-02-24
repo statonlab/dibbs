@@ -65,7 +65,7 @@ startup
       * Output: raw counts of known miRNAs by library
       * Downstream possible feature: map to reference and discover novel elements, normalize counts
       * [MiRDeep2](https://www.mdc-berlin.de/36105849/en/research/research_teams/systems_biology_of_gene_regulatory_elements/projects/miRDeep/documentation#top)
-
+      * Public galaxy server for miRNA analysis: [http://cefap.icb.usp.br/galaxy/](http://cefap.icb.usp.br/galaxy/)
 ### DNA
 * (P08)DNASeq Re-sequencing alignment. September 1, 2016
     * Input: raw reads in fastq format

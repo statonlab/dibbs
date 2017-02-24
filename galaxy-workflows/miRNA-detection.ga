@@ -1,0 +1,525 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "miRDeep2 + miRanda demo workflow", 
+    "format-version": "0.1", 
+    "name": "miRDeep-detection", 
+    "steps": {
+        "0": {
+            "annotation": "RNAseq", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "RNAseq", 
+                    "name": "RNAseq"
+                }
+            ], 
+            "label": "RNAseq", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200.00001525878906, 
+                "top": 199.9826545715332
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"RNAseq\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "87b39743-37d6-45cc-a46d-588a7812c57e", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "Reference Genome", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "Reference Genome", 
+                    "name": "Reference Genome"
+                }
+            ], 
+            "label": "Reference Genome", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200.00001525878906, 
+                "top": 284.7743263244629
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Reference Genome\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "b9df1590-5c44-42ce-a720-099111373387", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.65", 
+            "id": 2, 
+            "input_connections": {
+                "input_file": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "contaminants"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "limits"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
+            "name": "FastQC", 
+            "outputs": [
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "text_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 429.7743377685547, 
+                "top": 199.9826545715332
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.65", 
+            "tool_shed_repository": {
+                "changeset_revision": "3fdc1a74d866", 
+                "name": "fastqc", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"contaminants\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"limits\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.65", 
+            "type": "tool", 
+            "uuid": "5aae3895-fdaa-4956-8d68-5339721fa3f7", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/pjbriggs/trimmomatic/trimmomatic/0.36.0", 
+            "id": 3, 
+            "input_connections": {
+                "paired_end|fastq_in": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Trimmomatic", 
+                    "name": "paired_end"
+                }
+            ], 
+            "label": null, 
+            "name": "Trimmomatic", 
+            "outputs": [
+                {
+                    "name": "fastq_out_paired", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "fastq_out_unpaired", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "fastq_out_r1_paired", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "fastq_out_r2_paired", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "fastq_out_r1_unpaired", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "fastq_out_r2_unpaired", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "fastq_out", 
+                    "type": "fastqsanger"
+                }
+            ], 
+            "position": {
+                "left": 429.7743377685547, 
+                "top": 408.7673683166504
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/pjbriggs/trimmomatic/trimmomatic/0.36.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "14d05f2d511d", 
+                "name": "trimmomatic", 
+                "owner": "pjbriggs", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"operations\": \"[{\\\"__index__\\\": 0, \\\"operation\\\": {\\\"crop\\\": \\\"23\\\", \\\"name\\\": \\\"CROP\\\", \\\"__current_case__\\\": 4}}]\", \"__page__\": 0, \"paired_end\": \"{\\\"fastq_in\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"is_paired_end\\\": \\\"false\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"illuminaclip\": \"{\\\"do_illuminaclip\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"chromInfo\": \"\\\"/mnt/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.36.0", 
+            "type": "tool", 
+            "uuid": "5ea55fdf-d784-4471-84cb-cbee7b684c8c", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastq_to_fasta/cshl_fastq_to_fasta/1.0.0", 
+            "id": 4, 
+            "input_connections": {
+                "input": {
+                    "id": 3, 
+                    "output_name": "fastq_out"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FASTQ to FASTA", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "FASTQ to FASTA", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 757.5521087646484, 
+                "top": 199.9826545715332
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastq_to_fasta/cshl_fastq_to_fasta/1.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "186b8d913e6c", 
+                "name": "fastq_to_fasta", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"RENAMESEQ\": \"\\\"-r\\\"\", \"SKIPN\": \"\\\"\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/mnt/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "23fa19f5-d4c1-492d-9546-6432e5367804", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.65", 
+            "id": 5, 
+            "input_connections": {
+                "input_file": {
+                    "id": 3, 
+                    "output_name": "fastq_out"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "contaminants"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "limits"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
+            "name": "FastQC", 
+            "outputs": [
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "text_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 757.5521087646484, 
+                "top": 328.7673683166504
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.65", 
+            "tool_shed_repository": {
+                "changeset_revision": "3fdc1a74d866", 
+                "name": "fastqc", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"limits\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"contaminants\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/mnt/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.65", 
+            "type": "tool", 
+            "uuid": "d4b726fc-5500-4bc1-a458-3a3b79cc87a1", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/rnateam/mirdeep2_mapper/rbc_mirdeep2_mapper/2.0.0", 
+            "id": 6, 
+            "input_connections": {
+                "operation|refGenomeSource|ownFile": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "reads": {
+                    "id": 4, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool MiRDeep2 Mapper", 
+                    "name": "reads"
+                }
+            ], 
+            "label": null, 
+            "name": "MiRDeep2 Mapper", 
+            "outputs": [
+                {
+                    "name": "output_reads_collapsed", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "output_mapping", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1085.3298797607422, 
+                "top": 199.9826545715332
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/rnateam/mirdeep2_mapper/rbc_mirdeep2_mapper/2.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "12fc62b7dc09", 
+                "name": "mirdeep2_mapper", 
+                "owner": "rnateam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"discard_short_reads\": \"\\\"18\\\"\", \"__rerun_remap_job_id__\": null, \"reads\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"remove_non_canon\": \"\\\"false\\\"\", \"operation\": \"{\\\"map_mismatch\\\": \\\"false\\\", \\\"refGenomeSource\\\": {\\\"genomeSource\\\": \\\"history\\\", \\\"ownFile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}, \\\"__current_case__\\\": 0, \\\"collapse_map\\\": \\\"collapse_and_map\\\", \\\"map_threshold\\\": \\\"5\\\"}\", \"convert_rna_dna\": \"\\\"false\\\"\", \"clip_adapter\": \"{\\\"__current_case__\\\": 1, \\\"clip\\\": \\\"false\\\"}\", \"chromInfo\": \"\\\"/mnt/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "2.0.0", 
+            "type": "tool", 
+            "uuid": "2ad1cc5d-7d1a-43f9-9fe7-144ff631fad4", 
+            "workflow_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/lpantano/miraligner/miraligner/1.0.0", 
+            "id": 7, 
+            "input_connections": {
+                "input": {
+                    "id": 4, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Map small RNA", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "Map small RNA", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1085.3298797607422, 
+                "top": 365.76391983032227
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/lpantano/miraligner/miraligner/1.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "3b8253dc66a2", 
+                "name": "miraligner", 
+                "owner": "lpantano", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"sps\": \"\\\"hsa\\\"\", \"chromInfo\": \"\\\"/mnt/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__page__\": 0}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "4b73f5e9-aca1-4dbb-a84d-c0f888563dc2", 
+            "workflow_outputs": []
+        }, 
+        "8": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/rnateam/mirdeep2/rbc_mirdeep2/2.0.0", 
+            "id": 8, 
+            "input_connections": {
+                "genome": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "mappings": {
+                    "id": 6, 
+                    "output_name": "output_mapping"
+                }, 
+                "reads": {
+                    "id": 6, 
+                    "output_name": "output_reads_collapsed"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool MiRDeep2", 
+                    "name": "mature_other"
+                }, 
+                {
+                    "description": "runtime parameter for tool MiRDeep2", 
+                    "name": "mappings"
+                }, 
+                {
+                    "description": "runtime parameter for tool MiRDeep2", 
+                    "name": "star_sequences"
+                }, 
+                {
+                    "description": "runtime parameter for tool MiRDeep2", 
+                    "name": "reads"
+                }, 
+                {
+                    "description": "runtime parameter for tool MiRDeep2", 
+                    "name": "genome"
+                }, 
+                {
+                    "description": "runtime parameter for tool MiRDeep2", 
+                    "name": "mature_this"
+                }, 
+                {
+                    "description": "runtime parameter for tool MiRDeep2", 
+                    "name": "precursors"
+                }
+            ], 
+            "label": null, 
+            "name": "MiRDeep2", 
+            "outputs": [
+                {
+                    "name": "tab_results", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "html", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "pred_acc", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "bed_out", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "mrd_out", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1377.1007537841797, 
+                "top": 199.9826545715332
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/rnateam/mirdeep2/rbc_mirdeep2/2.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "d0faf81ccc99", 
+                "name": "mirdeep2", 
+                "owner": "rnateam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"max_precursors_analyze\": \"\\\"50000\\\"\", \"mature_other\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"mappings\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"min_score_cutoff\": \"\\\"0\\\"\", \"species\": \"\\\"hsa\\\"\", \"mature_this\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"reads\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"disable_randfold\": \"\\\"false\\\"\", \"genome\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"min_read_stack\": \"\\\"\\\"\", \"precursors\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/mnt/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"star_sequences\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "2.0.0", 
+            "type": "tool", 
+            "uuid": "ad804ea5-d63b-4a73-8c85-5e9bda992307", 
+            "workflow_outputs": []
+        }, 
+        "9": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/rnateam/mirdeep2_quantifier/rbc_mirdeep2_quantifier/2.0.0", 
+            "id": 9, 
+            "input_connections": {
+                "reads": {
+                    "id": 6, 
+                    "output_name": "output_reads_collapsed"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool MiRDeep2 Quantifier", 
+                    "name": "reads"
+                }, 
+                {
+                    "description": "runtime parameter for tool MiRDeep2 Quantifier", 
+                    "name": "mature"
+                }, 
+                {
+                    "description": "runtime parameter for tool MiRDeep2 Quantifier", 
+                    "name": "precursors"
+                }, 
+                {
+                    "description": "runtime parameter for tool MiRDeep2 Quantifier", 
+                    "name": "star_sequences"
+                }
+            ], 
+            "label": null, 
+            "name": "MiRDeep2 Quantifier", 
+            "outputs": [
+                {
+                    "name": "miRNAsExpressed", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "html", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 1377.1007537841797, 
+                "top": 611.7708473205566
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/rnateam/mirdeep2_quantifier/rbc_mirdeep2_quantifier/2.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "40dc77f3730c", 
+                "name": "mirdeep2_quantifier", 
+                "owner": "rnateam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"mature\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"skipFileConversion\": \"\\\"false\\\"\", \"allowedMismatches\": \"\\\"1\\\"\", \"__rerun_remap_job_id__\": null, \"discardReadMultiMap\": \"\\\"false\\\"\", \"wholePrecursAsMature\": \"\\\"false\\\"\", \"upstreamNtides\": \"\\\"2\\\"\", \"downstreamNtides\": \"\\\"5\\\"\", \"reads\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"sortReadsInPDF\": \"\\\"true\\\"\", \"flexibleIdMapping\": \"\\\"false\\\"\", \"precursors\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"species\": \"\\\"all\\\"\", \"star_sequences\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"skipPrecursMapping\": \"\\\"false\\\"\"}", 
+            "tool_version": "2.0.0", 
+            "type": "tool", 
+            "uuid": "fd60d4f7-97e1-425a-9609-8da11ad900c8", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "d0fca9fc-8e4f-4ebc-b6b5-79b796ca7629"
+}

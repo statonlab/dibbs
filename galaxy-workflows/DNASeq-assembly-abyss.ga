@@ -1,0 +1,490 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "DNASeq-assembly-abyss", 
+    "steps": {
+        "0": {
+            "annotation": "Forward reads", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "Forward reads", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 206, 
+                "top": 201
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "c8a83a72-deff-4a62-9b9a-2015c54f0db3", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "Reverse reads", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "Reverse reads", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 207, 
+                "top": 329
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "3610a129-92df-4a44-83bd-7d2554ec2371", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "cat_fastq", 
+            "id": 2, 
+            "input_connections": {
+                "fastqsanger_files": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Catenate fastq", 
+                    "name": "fastqsanger_files"
+                }
+            ], 
+            "label": null, 
+            "name": "Catenate fastq", 
+            "outputs": [
+                {
+                    "name": "combined_fastq", 
+                    "type": "fastqsanger"
+                }
+            ], 
+            "position": {
+                "left": 403.3125, 
+                "top": 157.546875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "cat_fastq", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"fastqsanger_files\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "uuid": "fe77d3cb-292f-442c-b8cc-9ddc803c3ede", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "cat_fastq", 
+            "id": 3, 
+            "input_connections": {
+                "fastqsanger_files": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Catenate fastq", 
+                    "name": "fastqsanger_files"
+                }
+            ], 
+            "label": null, 
+            "name": "Catenate fastq", 
+            "outputs": [
+                {
+                    "name": "combined_fastq", 
+                    "type": "fastqsanger"
+                }
+            ], 
+            "position": {
+                "left": 400.3125, 
+                "top": 342.546875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "cat_fastq", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"fastqsanger_files\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.1", 
+            "type": "tool", 
+            "uuid": "fa717cad-8b23-4c80-8c4b-4548dbc91f65", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.67", 
+            "id": 4, 
+            "input_connections": {
+                "input_file": {
+                    "id": 2, 
+                    "output_name": "combined_fastq"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "contaminants"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "limits"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
+            "name": "FastQC", 
+            "outputs": [
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "text_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 665, 
+                "top": 135
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.67", 
+            "tool_shed_repository": {
+                "changeset_revision": "3a458e268066", 
+                "name": "fastqc", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"contaminants\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"limits\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.67", 
+            "type": "tool", 
+            "uuid": "789e8622-f71a-42f3-931c-af5242fcb8a2", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.67", 
+            "id": 5, 
+            "input_connections": {
+                "input_file": {
+                    "id": 3, 
+                    "output_name": "combined_fastq"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "contaminants"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "limits"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
+            "name": "FastQC", 
+            "outputs": [
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "text_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 667, 
+                "top": 345
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.67", 
+            "tool_shed_repository": {
+                "changeset_revision": "3a458e268066", 
+                "name": "fastqc", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"contaminants\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"limits\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.67", 
+            "type": "tool", 
+            "uuid": "df07ea87-8730-4095-aee9-14d8cf01d7ff", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/pjbriggs/trimmomatic/trimmomatic/0.36.0", 
+            "id": 6, 
+            "input_connections": {
+                "paired_end|paired_input_type_conditional|fastq_r1_in": {
+                    "id": 2, 
+                    "output_name": "combined_fastq"
+                }, 
+                "paired_end|paired_input_type_conditional|fastq_r2_in": {
+                    "id": 3, 
+                    "output_name": "combined_fastq"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "Trimmomatic", 
+            "outputs": [
+                {
+                    "name": "fastq_out_paired", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "fastq_out_unpaired", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "fastq_out_r1_paired", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "fastq_out_r2_paired", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "fastq_out_r1_unpaired", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "fastq_out_r2_unpaired", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "fastq_out", 
+                    "type": "fastqsanger"
+                }
+            ], 
+            "position": {
+                "left": 932, 
+                "top": 188
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/pjbriggs/trimmomatic/trimmomatic/0.36.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "14d05f2d511d", 
+                "name": "trimmomatic", 
+                "owner": "pjbriggs", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"operations\": \"[{\\\"__index__\\\": 0, \\\"operation\\\": {\\\"window_size\\\": \\\"4\\\", \\\"name\\\": \\\"SLIDINGWINDOW\\\", \\\"__current_case__\\\": 0, \\\"required_quality\\\": \\\"20\\\"}}]\", \"__page__\": 0, \"__rerun_remap_job_id__\": null, \"paired_end\": \"{\\\"is_paired_end\\\": \\\"true\\\", \\\"paired_input_type_conditional\\\": {\\\"paired_input_type\\\": \\\"pair_of_files\\\", \\\"fastq_r1_in\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0, \\\"fastq_r2_in\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}, \\\"__current_case__\\\": 1}\", \"illuminaclip\": \"{\\\"do_illuminaclip\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\"}", 
+            "tool_version": "0.36.0", 
+            "type": "tool", 
+            "uuid": "93c7393e-8c56-4ba4-8dda-668a3973f5dc", 
+            "workflow_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.67", 
+            "id": 7, 
+            "input_connections": {
+                "input_file": {
+                    "id": 6, 
+                    "output_name": "fastq_out_r1_paired"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "contaminants"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "limits"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
+            "name": "FastQC", 
+            "outputs": [
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "text_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1195.34375, 
+                "top": 128.875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.67", 
+            "tool_shed_repository": {
+                "changeset_revision": "3a458e268066", 
+                "name": "fastqc", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"contaminants\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"limits\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.67", 
+            "type": "tool", 
+            "uuid": "e9fc9bc0-011e-4cc9-bb77-219ea9ce7340", 
+            "workflow_outputs": []
+        }, 
+        "8": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.67", 
+            "id": 8, 
+            "input_connections": {
+                "input_file": {
+                    "id": 6, 
+                    "output_name": "fastq_out_r2_paired"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "contaminants"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "limits"
+                }, 
+                {
+                    "description": "runtime parameter for tool FastQC", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
+            "name": "FastQC", 
+            "outputs": [
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "text_file", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1202.34375, 
+                "top": 353.875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.67", 
+            "tool_shed_repository": {
+                "changeset_revision": "3a458e268066", 
+                "name": "fastqc", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"contaminants\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"limits\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "0.67", 
+            "type": "tool", 
+            "uuid": "3e716490-6f9b-4d01-be38-bd040915a0bd", 
+            "workflow_outputs": []
+        }, 
+        "9": {
+            "annotation": "", 
+            "content_id": "abyss-pe", 
+            "id": 9, 
+            "input_connections": {
+                "lib_repeat_0|reads|reads1": {
+                    "id": 6, 
+                    "output_name": "fastq_out_r1_paired"
+                }, 
+                "lib_repeat_0|reads|reads2": {
+                    "id": 6, 
+                    "output_name": "fastq_out_r2_paired"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool ABySS", 
+                    "name": "se_reads"
+                }, 
+                {
+                    "description": "runtime parameter for tool ABySS", 
+                    "name": "long_seqs"
+                }
+            ], 
+            "label": null, 
+            "name": "ABySS", 
+            "outputs": [
+                {
+                    "name": "unitigs", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "contigs_outfile", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "scaffolds", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "bubbles", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "indels", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "coverage_histogram_outfile", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "stats", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 1505.265625, 
+                "top": 222.640625
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "abyss-pe", 
+            "tool_state": "{\"__page__\": 0, \"se_reads\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"mp_repeat\": \"[]\", \"E\": \"\\\"\\\"\", \"K\": \"\\\"\\\"\", \"N\": \"\\\"\\\"\", \"Q\": \"\\\"0\\\"\", \"S\": \"\\\"\\\"\", \"lib_repeat\": \"[{\\\"__index__\\\": 0, \\\"reads\\\": {\\\"reads2\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reads1\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0, \\\"reads_selector\\\": \\\"paired\\\"}}]\", \"a\": \"\\\"2\\\"\", \"long_seqs\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"c\": \"\\\"\\\"\", \"b\": \"\\\"\\\"\", \"e\": \"\\\"\\\"\", \"d\": \"\\\"6\\\"\", \"SS\": \"\\\"false\\\"\", \"k\": \"\\\"41\\\"\", \"m\": \"\\\"50\\\"\", \"l\": \"\\\"\\\"\", \"n\": \"\\\"10\\\"\", \"q\": \"\\\"3\\\"\", \"p\": \"\\\"0.9\\\"\", \"s\": \"\\\"200\\\"\", \"t\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "1.9.0.0", 
+            "type": "tool", 
+            "uuid": "99b5cd1e-3257-4dbe-b363-39284f701aae", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "1af98a12-2f45-49c5-9d11-1e300004d60e"
+}

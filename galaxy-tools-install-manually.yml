@@ -1,0 +1,57 @@
+# version 2.2.0.0
+# 13 (2016-12-13)
+api_key: admin
+galaxy_instance: http://localhost:8080
+tools:
+- name: trinity
+  owner: iuc
+  tool_panel_section_label: "Galaxy Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+  revisions:
+          - "44056084d3bc"
+
+
+api_key: admin
+galaxy_instance: http://localhost:8080
+tools:
+- name: miraligner
+  owner: lpantano
+  tool_panel_section_label: "Galaxy Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+  revisions:
+          - "3b8253dc66a2"
+
+# version: 2.0.0
+api_key: admin
+galaxy_instance: http://localhost:8080
+tools:
+- name: mirdeep2
+  owner: rnateam
+  tool_panel_section_label: "Galaxy Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+  revisions:
+          - "d0faf81ccc99"
+
+# version: 2.0.0
+api_key: admin
+galaxy_instance: http://localhost:8080
+tools:
+- name: mirdeep2_mapper
+  owner: rnateam
+  tool_panel_section_label: "Galaxy Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+  revisions:
+          - "ab8cd78709e1"
+
+# version: 2.0.0
+api_key: admin
+galaxy_instance: http://localhost:8080
+tools:
+- name: mirdeep2_quantifier
+  owner: rnateam
+  tool_panel_section_label: "Galaxy Tools"
+  tool_shed_url: https://toolshed.g2.bx.psu.edu/
+  revisions:
+          - "40dc77f3730c"
+
+# WGCNA (need to wrap from scratch)

@@ -1,0 +1,277 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "differential-gene-expression-analysis", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Gene Model (GFF) file"
+                }
+            ], 
+            "label": "Gene Model (GFF) file", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 200
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Gene Model (GFF) file\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "66ae6129-36aa-482f-9c16-4eda1c069b74", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "bam/sam file"
+                }
+            ], 
+            "label": "bam/sam file", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 302
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"bam/sam file\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "28d220a5-2080-447a-9911-54cbfd4770e5", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "testtoolshed.g2.bx.psu.edu/repos/fubar/htseq_bams_to_count_matrix/htseqsams2mxlocal/0.5", 
+            "id": 2, 
+            "input_connections": {
+                "gfffile": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "samfiles": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool SAM/BAM to count matrix", 
+                    "name": "gfffile"
+                }, 
+                {
+                    "description": "runtime parameter for tool SAM/BAM to count matrix", 
+                    "name": "samfiles"
+                }
+            ], 
+            "label": null, 
+            "name": "SAM/BAM to count matrix", 
+            "outputs": [
+                {
+                    "name": "outfile", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 430, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/fubar/htseq_bams_to_count_matrix/htseqsams2mxlocal/0.5", 
+            "tool_shed_repository": {
+                "changeset_revision": "d300bc688e95", 
+                "name": "htseq_bams_to_count_matrix", 
+                "owner": "fubar", 
+                "tool_shed": "testtoolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"feature_type\": \"\\\"exon\\\"\", \"title\": \"\\\"bams to DGE count matrix\\\"\", \"__rerun_remap_job_id__\": null, \"stranded\": \"\\\"false\\\"\", \"gfffile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"id_attr\": \"\\\"gene_name\\\"\", \"filter_extras\": \"null\", \"samfiles\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"model\": \"\\\"union\\\"\", \"mapqMin\": \"\\\"5\\\"\"}", 
+            "tool_version": "0.5", 
+            "type": "tool", 
+            "uuid": "85cb73b9-008b-43f5-ae41-f483279ccb82", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "testtoolshed.g2.bx.psu.edu/repos/fubar/differential_count_models/rgdifferentialcount/0.28", 
+            "id": 3, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "outfile"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Differential_Count", 
+                    "name": "input1"
+                }
+            ], 
+            "label": null, 
+            "name": "Differential_Count", 
+            "outputs": [
+                {
+                    "name": "out_edgeR", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "out_DESeq2", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "out_VOOM", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 758, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/fubar/differential_count_models/rgdifferentialcount/0.28", 
+            "tool_shed_repository": {
+                "changeset_revision": "3107df74056e", 
+                "name": "differential_count_models", 
+                "owner": "fubar", 
+                "tool_shed": "testtoolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"doVoom\": \"\\\"F\\\"\", \"fQ\": \"\\\"0.3\\\"\", \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"DESeq2\": \"{\\\"__current_case__\\\": 1, \\\"doDESeq2\\\": \\\"F\\\"}\", \"title\": \"\\\"Differential Counts\\\"\", \"__page__\": 0, \"useNDF\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"fdrthresh\": \"\\\"0.05\\\"\", \"subjectids\": \"\\\"\\\"\", \"fdrtype\": \"\\\"fdr\\\"\", \"Treat_cols\": \"null\", \"edgeR\": \"{\\\"edgeR_priordf\\\": \\\"10\\\", \\\"edgeR_robust_method\\\": \\\"ordinary\\\", \\\"doedgeR\\\": \\\"T\\\", \\\"__current_case__\\\": 0}\", \"control_name\": \"\\\"Control\\\"\", \"treatment_name\": \"\\\"Treatment\\\"\", \"Control_cols\": \"null\"}", 
+            "tool_version": "0.28", 
+            "type": "tool", 
+            "uuid": "6e3d298d-7cc7-4aed-b938-a524277fa9fb", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "testtoolshed.g2.bx.psu.edu/repos/fubar/differential_count_models/rgdifferentialcount/0.28", 
+            "id": 4, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "outfile"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Differential_Count", 
+                    "name": "input1"
+                }
+            ], 
+            "label": null, 
+            "name": "Differential_Count", 
+            "outputs": [
+                {
+                    "name": "out_edgeR", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "out_DESeq2", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "out_VOOM", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "html_file", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 758, 
+                "top": 428
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/fubar/differential_count_models/rgdifferentialcount/0.28", 
+            "tool_shed_repository": {
+                "changeset_revision": "3107df74056e", 
+                "name": "differential_count_models", 
+                "owner": "fubar", 
+                "tool_shed": "testtoolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"doVoom\": \"\\\"F\\\"\", \"fQ\": \"\\\"0.3\\\"\", \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"DESeq2\": \"{\\\"DESeq_fitType\\\": \\\"parametric\\\", \\\"__current_case__\\\": 0, \\\"doDESeq2\\\": \\\"T\\\"}\", \"title\": \"\\\"Differential Counts\\\"\", \"__page__\": 0, \"useNDF\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"fdrthresh\": \"\\\"0.05\\\"\", \"subjectids\": \"\\\"\\\"\", \"fdrtype\": \"\\\"fdr\\\"\", \"Treat_cols\": \"[]\", \"edgeR\": \"{\\\"doedgeR\\\": \\\"F\\\", \\\"__current_case__\\\": 1}\", \"control_name\": \"\\\"Control\\\"\", \"treatment_name\": \"\\\"Treatment\\\"\", \"Control_cols\": \"[]\"}", 
+            "tool_version": "0.28", 
+            "type": "tool", 
+            "uuid": "1e4bde5f-7ba5-4a7d-9bb1-e1eeae07eff5", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/idot/prop_venn/prop_venn/0.5", 
+            "id": 5, 
+            "input_connections": {
+                "inputFile1": {
+                    "id": 3, 
+                    "output_name": "out_edgeR"
+                }, 
+                "twoThree|inputFile3": {
+                    "id": 4, 
+                    "output_name": "out_DESeq2"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool proportional venn", 
+                    "name": "twoThree"
+                }, 
+                {
+                    "description": "runtime parameter for tool proportional venn", 
+                    "name": "inputFile1"
+                }, 
+                {
+                    "description": "runtime parameter for tool proportional venn", 
+                    "name": "inputFile2"
+                }
+            ], 
+            "label": null, 
+            "name": "proportional venn", 
+            "outputs": [
+                {
+                    "name": "outPath", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 1086, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/idot/prop_venn/prop_venn/0.5", 
+            "tool_shed_repository": {
+                "changeset_revision": "cc6707a1e044", 
+                "name": "prop_venn", 
+                "owner": "idot", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"asName1\": \"\\\"A\\\"\", \"asName2\": \"\\\"B\\\"\", \"title\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"twoThree\": \"{\\\"tt\\\": \\\"three\\\", \\\"inputFile3\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"column3\\\": \\\"0\\\", \\\"__current_case__\\\": 1, \\\"asName3\\\": \\\"C\\\"}\", \"inputFile1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"inputFile2\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"column2\": \"\\\"0\\\"\", \"column1\": \"\\\"0\\\"\", \"size\": \"\\\"300\\\"\"}", 
+            "tool_version": "0.5", 
+            "type": "tool", 
+            "uuid": "19509f51-eb45-4090-913b-74df24f0d418", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "d346056b-eef3-4e40-aba6-7189c3bbfa57"
+}

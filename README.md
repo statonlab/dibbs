@@ -1,6 +1,6 @@
 ## Docker galaxy dibbs
 
-* github repository: [https://github.com/MingChen0919/docker-galaxy-dibbss](https://github.com/MingChen0919/docker-galaxy-dibbss)
+* github repository: [https://github.com/statonlab/docker-galaxy-staton](https://github.com/statonlab/docker-galaxy-staton)
 * Build docker image from the github repository
 ```
 git clone https://github.com/MingChen0919/docker-galaxy-dibbss.git

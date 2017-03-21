@@ -1,5 +1,5 @@
 # version: 2.0.1.0
-# 11 (2016-02-19)
+# 1 (2017-03-01)
 api_key: admin
 galaxy_instance: http://localhost:8080
 tools:

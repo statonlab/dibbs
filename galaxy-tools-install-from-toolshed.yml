@@ -125,8 +125,8 @@ tools:
   revisions:
           - "0072bf593791"
 
-# version: 0.3
-# 2 (2015-04-21)
+# version: 0.9.18_0059bdf
+# 16 (2014-12-16)
 api_key: admin
 galaxy_instance: http://localhost:8080
 tools:

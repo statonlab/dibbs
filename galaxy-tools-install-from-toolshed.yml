@@ -82,6 +82,7 @@ tools:
           - "20ca2574216a"
 
 # version: 1.0.4
+# 1(2015-11-11)
 api_key: admin
 galaxy_instance: http://localhost:8080
 tools:

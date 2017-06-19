@@ -1,0 +1,407 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "gatk-variant-call-paired-datasets-collection", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset Collection"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset collection", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 200
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"collection_type\": \"list:paired\", \"name\": \"Input Dataset Collection\"}", 
+            "tool_version": null, 
+            "type": "data_collection_input", 
+            "uuid": "3c813c0c-35e3-4fc6-abf7-716545d00a8a", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 285
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "f96e4686-ec1d-41e5-a9e4-1e8d0bc3e606", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastq_groomer/fastq_groomer/1.0.4", 
+            "id": 2, 
+            "input_connections": {
+                "input_file": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FASTQ Groomer", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
+            "name": "FASTQ Groomer", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "fastqsanger"
+                }
+            ], 
+            "position": {
+                "left": 475, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastq_groomer/fastq_groomer/1.0.4", 
+            "tool_shed_repository": {
+                "changeset_revision": "e4d28c94242d", 
+                "name": "fastq_groomer", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_type\": \"\\\"sanger\\\"\", \"__rerun_remap_job_id__\": null, \"options_type\": \"{\\\"__current_case__\\\": 0, \\\"options_type_selector\\\": \\\"basic\\\"}\", \"input_file|__identifier__\": \"\\\"forward\\\"\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\"}", 
+            "tool_version": "1.0.4", 
+            "type": "tool", 
+            "uuid": "f1d95f36-eae6-4861-b504-e235e8150fd3", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/2.2.6.2", 
+            "id": 3, 
+            "input_connections": {
+                "library|input_1": {
+                    "id": 2, 
+                    "output_name": "output_file"
+                }, 
+                "reference_genome|own_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Bowtie2", 
+                    "name": "library"
+                }, 
+                {
+                    "description": "runtime parameter for tool Bowtie2", 
+                    "name": "reference_genome"
+                }
+            ], 
+            "label": null, 
+            "name": "Bowtie2", 
+            "outputs": [
+                {
+                    "name": "output_unaligned_reads_l", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "output_aligned_reads_l", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "output_aligned_reads_r", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "output_unaligned_reads_r", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "output", 
+                    "type": "bam"
+                }, 
+                {
+                    "name": "output_sam", 
+                    "type": "sam"
+                }, 
+                {
+                    "name": "mapping_stats", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 803, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/2.2.6.2", 
+            "tool_shed_repository": {
+                "changeset_revision": "a9d4f71dbfb0", 
+                "name": "bowtie2", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"library\": \"{\\\"aligned_file\\\": \\\"false\\\", \\\"unaligned_file\\\": \\\"false\\\", \\\"__current_case__\\\": 2, \\\"input_1\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"type\\\": \\\"paired_collection\\\", \\\"paired_options\\\": {\\\"no_mixed\\\": \\\"false\\\", \\\"dovetail\\\": \\\"false\\\", \\\"I\\\": \\\"0\\\", \\\"no_contain\\\": \\\"false\\\", \\\"no_discordant\\\": \\\"false\\\", \\\"no_overlap\\\": \\\"false\\\", \\\"__current_case__\\\": 0, \\\"X\\\": \\\"500\\\", \\\"fr_rf_ff\\\": \\\"--fr\\\", \\\"paired_options_selector\\\": \\\"yes\\\"}}\", \"reference_genome\": \"{\\\"source\\\": \\\"history\\\", \\\"__current_case__\\\": 1, \\\"own_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\", \"rg\": \"{\\\"rg_selector\\\": \\\"set\\\", \\\"KS\\\": \\\"\\\", \\\"read_group_sm_conditional\\\": {\\\"do_auto_name\\\": \\\"false\\\", \\\"SM\\\": \\\"group_sample_name\\\", \\\"__current_case__\\\": 1}, \\\"CN\\\": \\\"\\\", \\\"PU\\\": \\\"\\\", \\\"read_group_lb_conditional\\\": {\\\"do_auto_name\\\": \\\"false\\\", \\\"LB\\\": \\\"\\\", \\\"__current_case__\\\": 1}, \\\"read_group_id_conditional\\\": {\\\"do_auto_name\\\": \\\"false\\\", \\\"ID\\\": \\\"group_id\\\", \\\"__current_case__\\\": 1}, \\\"PG\\\": \\\"\\\", \\\"__current_case__\\\": 1, \\\"DT\\\": \\\"\\\", \\\"PI\\\": \\\"\\\", \\\"DS\\\": \\\"\\\", \\\"PL\\\": \\\"ILLUMINA\\\", \\\"FO\\\": \\\"\\\"}\", \"save_mapping_stats\": \"\\\"false\\\"\", \"analysis_type\": \"{\\\"analysis_type_selector\\\": \\\"simple\\\", \\\"presets\\\": \\\"no_presets\\\", \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\"}", 
+            "tool_version": "2.2.6.2", 
+            "type": "tool", 
+            "uuid": "3766f8e4-69d0-4b20-b3fc-ffa1d9d02807", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/gatk2/gatk2_realigner_target_creator/2.8.0", 
+            "id": 4, 
+            "input_connections": {
+                "reference_source|input_bam": {
+                    "id": 3, 
+                    "output_name": "output"
+                }, 
+                "reference_source|ref_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Realigner Target Creator", 
+                    "name": "reference_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Realigner Target Creator", 
+                    "name": "reference_source"
+                }
+            ], 
+            "label": null, 
+            "name": "Realigner Target Creator", 
+            "outputs": [
+                {
+                    "name": "output_interval", 
+                    "type": "gatk_interval"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1131, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/gatk2/gatk2_realigner_target_creator/2.8.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "84584664264c", 
+                "name": "gatk2", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"analysis_param_type\": \"{\\\"analysis_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"input_bam\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"rod_bind\": \"[]\"}", 
+            "tool_version": "2.8.0", 
+            "type": "tool", 
+            "uuid": "b996db5b-059e-4ce8-af4d-8eec97465135", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/gatk2/gatk2_indel_realigner/2.8.0", 
+            "id": 5, 
+            "input_connections": {
+                "reference_source|input_bam": {
+                    "id": 3, 
+                    "output_name": "output"
+                }, 
+                "reference_source|ref_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Indel Realigner", 
+                    "name": "target_intervals"
+                }, 
+                {
+                    "description": "runtime parameter for tool Indel Realigner", 
+                    "name": "reference_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool Indel Realigner", 
+                    "name": "reference_source"
+                }
+            ], 
+            "label": null, 
+            "name": "Indel Realigner", 
+            "outputs": [
+                {
+                    "name": "output_bam", 
+                    "type": "bam"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1131, 
+                "top": 393
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/gatk2/gatk2_indel_realigner/2.8.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "84584664264c", 
+                "name": "gatk2", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"knowns_only\": \"\\\"false\\\"\", \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"lod_threshold\": \"\\\"5.0\\\"\", \"analysis_param_type\": \"{\\\"analysis_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"target_intervals\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"input_bam\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"__rerun_remap_job_id__\": null, \"rod_bind\": \"[]\"}", 
+            "tool_version": "2.8.0", 
+            "type": "tool", 
+            "uuid": "b6c2d7f0-7da5-452f-8357-bcd870db30bd", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/gatk2/gatk2_unified_genotyper/2.8.0", 
+            "id": 6, 
+            "input_connections": {
+                "reference_source|input_bams_0|input_bam": {
+                    "id": 5, 
+                    "output_name": "output_bam"
+                }, 
+                "reference_source|ref_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Unified Genotyper", 
+                    "name": "dbsnp_rod_bind_type"
+                }, 
+                {
+                    "description": "runtime parameter for tool Unified Genotyper", 
+                    "name": "reference_source"
+                }
+            ], 
+            "label": null, 
+            "name": "Unified Genotyper", 
+            "outputs": [
+                {
+                    "name": "output_vcf", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "output_metrics", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "output_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 1459, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/gatk2/gatk2_unified_genotyper/2.8.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "84584664264c", 
+                "name": "gatk2", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"dbsnp_rod_bind_type\": \"{\\\"dbsnp_rod_bind_type_selector\\\": \\\"set_dbsnp\\\", \\\"dbsnp_input_rod\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1, \\\"dbsnp_rod_name\\\": \\\"dbsnp\\\"}\", \"genotype_likelihoods_model\": \"\\\"BOTH\\\"\", \"__rerun_remap_job_id__\": null, \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"standard_min_confidence_threshold_for_emitting\": \"\\\"30.0\\\"\", \"analysis_param_type\": \"{\\\"analysis_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"standard_min_confidence_threshold_for_calling\": \"\\\"30.0\\\"\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"input_bams\\\": [{\\\"__index__\\\": 0, \\\"input_bam\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}], \\\"__current_case__\\\": 1}\"}", 
+            "tool_version": "2.8.0", 
+            "type": "tool", 
+            "uuid": "04227b95-0f88-4b86-9662-dd972caa9925", 
+            "workflow_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/4.0.0", 
+            "id": 7, 
+            "input_connections": {
+                "input": {
+                    "id": 6, 
+                    "output_name": "output_vcf"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "intervals"
+                }, 
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "input"
+                }, 
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "transcripts"
+                }
+            ], 
+            "label": null, 
+            "name": "SnpEff", 
+            "outputs": [
+                {
+                    "name": "snpeff_output", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "statsFile", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 1703, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/4.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "e09ce114d240", 
+                "name": "snpeff", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"spliceSiteSize\": \"\\\"2\\\"\", \"filter\": \"{\\\"specificEffects\\\": \\\"no\\\", \\\"__current_case__\\\": 0}\", \"filterOut\": \"null\", \"inputFormat\": \"\\\"vcf\\\"\", \"__page__\": 0, \"outputConditional\": \"{\\\"outputFormat\\\": \\\"vcf\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"udLength\": \"\\\"5000\\\"\", \"generate_stats\": \"\\\"true\\\"\", \"noLog\": \"\\\"true\\\"\", \"chr\": \"\\\"\\\"\", \"intervals\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"snpDb\": \"{\\\"genome_version\\\": \\\"hg19\\\", \\\"__current_case__\\\": 2, \\\"genomeSrc\\\": \\\"named\\\"}\", \"offset\": \"\\\"default\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"transcripts\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"annotations\": \"null\"}", 
+            "tool_version": "4.0.0", 
+            "type": "tool", 
+            "uuid": "7d0d3903-61a4-4e6f-ba97-bc129022875e", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "47e93322-81fd-42aa-b57e-a5a683539141"
+}

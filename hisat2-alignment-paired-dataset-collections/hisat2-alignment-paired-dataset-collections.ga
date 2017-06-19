@@ -1,0 +1,128 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "hisat2-alignment-paired-dataset-collections", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "reads in paired dataset collection"
+                }
+            ], 
+            "label": "reads in paired dataset collection", 
+            "name": "Input dataset collection", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 200
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"collection_type\": \"list:paired\", \"name\": \"reads in paired dataset collection\"}", 
+            "tool_version": null, 
+            "type": "data_collection_input", 
+            "uuid": "399d0c66-d308-4d97-a948-3340c7ddeb6d", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "reference genome"
+                }
+            ], 
+            "label": "reference genome", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 302
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"reference genome\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "be41c1ab-ca5a-45a7-9391-776ad330b30a", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/hisat2/hisat2/2.0.5.1", 
+            "id": 2, 
+            "input_connections": {
+                "input_format|paired|reads": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "reference_genome|history_item": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool HISAT2", 
+                    "name": "reference_genome"
+                }, 
+                {
+                    "description": "runtime parameter for tool HISAT2", 
+                    "name": "spliced_options"
+                }
+            ], 
+            "label": null, 
+            "name": "HISAT2", 
+            "outputs": [
+                {
+                    "name": "output_alignments", 
+                    "type": "bam"
+                }, 
+                {
+                    "name": "output_unaligned_reads_l", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "output_unaligned_reads_r", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "output_aligned_reads_l", 
+                    "type": "fastqsanger"
+                }, 
+                {
+                    "name": "output_aligned_reads_r", 
+                    "type": "fastqsanger"
+                }
+            ], 
+            "position": {
+                "left": 475, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/hisat2/hisat2/2.0.5.1", 
+            "tool_shed_repository": {
+                "changeset_revision": "2ec097c8e843", 
+                "name": "hisat2", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"alignment_options\": \"{\\\"coefficient\\\": \\\"0\\\", \\\"constant_term\\\": \\\"0\\\", \\\"alignment_options_selector\\\": \\\"advanced\\\", \\\"skip_reverse\\\": \\\"false\\\", \\\"ignore_quals\\\": \\\"false\\\", \\\"function_type\\\": \\\"C\\\", \\\"__current_case__\\\": 1, \\\"skip_forward\\\": \\\"false\\\"}\", \"max_seeds\": \"\\\"\\\"\", \"input_format\": \"{\\\"paired\\\": {\\\"aligned_file\\\": \\\"false\\\", \\\"unaligned_file\\\": \\\"false\\\", \\\"paired_end_options\\\": {\\\"paired_end_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}, \\\"paired_selector\\\": \\\"paired_collection\\\", \\\"reads\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}, \\\"input_format_selector\\\": \\\"fastq\\\", \\\"__current_case__\\\": 1}\", \"__page__\": 0, \"max_primary\": \"\\\"\\\"\", \"scoring_options\": \"{\\\"coefficient\\\": \\\"0\\\", \\\"no_softclip\\\": \\\"false\\\", \\\"min_mismatch\\\": \\\"2\\\", \\\"constant_term\\\": \\\"0\\\", \\\"ref_open_penalty\\\": \\\"5\\\", \\\"read_open_penalty\\\": \\\"5\\\", \\\"soft_clip_penalty_max\\\": \\\"2\\\", \\\"read_extend_penalty\\\": \\\"3\\\", \\\"max_mismatch\\\": \\\"6\\\", \\\"function_type\\\": \\\"C\\\", \\\"ambiguous_penalty\\\": \\\"1\\\", \\\"match_bonus\\\": \\\"2\\\", \\\"__current_case__\\\": 1, \\\"soft_clip_penalty_min\\\": \\\"1\\\", \\\"scoring_options_selector\\\": \\\"advanced\\\", \\\"ref_extend_penalty\\\": \\\"3\\\"}\", \"reference_genome\": \"{\\\"reference_genome_source\\\": \\\"history\\\", \\\"history_item\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"spliced_options\": \"{\\\"coefficient\\\": \\\"0\\\", \\\"canonical_penalty\\\": \\\"0\\\", \\\"no_spliced_alignment_options\\\": {\\\"no_spliced_alignment\\\": \\\"--no-spliced-alignment\\\", \\\"maxins\\\": \\\"500\\\", \\\"minins\\\": \\\"0\\\", \\\"__current_case__\\\": 0}, \\\"nc_function_type\\\": \\\"G\\\", \\\"constant_term\\\": \\\"0\\\", \\\"nc_coefficient\\\": \\\"1\\\", \\\"noncanonical_penalty\\\": \\\"3\\\", \\\"known_splice_gtf\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"nc_constant_term\\\": \\\"-8\\\", \\\"min_intron\\\": \\\"20\\\", \\\"function_type\\\": \\\"C\\\", \\\"rna_strandness\\\": \\\"\\\", \\\"__current_case__\\\": 1, \\\"tma\\\": \\\"\\\", \\\"max_intron\\\": \\\"500000\\\", \\\"spliced_options_selector\\\": \\\"advanced\\\"}\", \"input_options\": \"{\\\"trim_three\\\": \\\"0\\\", \\\"skip\\\": \\\"0\\\", \\\"input_options_selector\\\": \\\"advanced\\\", \\\"trim_five\\\": \\\"0\\\", \\\"__current_case__\\\": 1, \\\"stop_after\\\": \\\"0\\\"}\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"paired_options\": \"{\\\"__current_case__\\\": 1, \\\"dovetail\\\": \\\"false\\\", \\\"no_discordant\\\": \\\"false\\\", \\\"maxins\\\": \\\"500\\\", \\\"overlap\\\": \\\"false\\\", \\\"minins\\\": \\\"0\\\", \\\"contain\\\": \\\"false\\\", \\\"paired_options_selector\\\": \\\"advanced\\\", \\\"no_mixed\\\": \\\"false\\\"}\", \"secondary\": \"\\\"false\\\"\"}", 
+            "tool_version": "2.0.5.1", 
+            "type": "tool", 
+            "uuid": "a0a24f20-2fa5-4f4e-8054-bd98e24d8858", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "11bfd67a-0ed8-4901-8091-6d62c496f6b7"
+}

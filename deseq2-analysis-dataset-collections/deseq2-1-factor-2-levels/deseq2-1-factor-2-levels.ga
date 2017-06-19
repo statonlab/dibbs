@@ -1,0 +1,259 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "deseq2-1-factor-2-levels", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "gene annotation file"
+                }
+            ], 
+            "label": "gene annotation file", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 200
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"gene annotation file\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "8c239fad-d7ef-442c-a77b-c676fe193d37", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "treatment 1 mapped reads dataset collection"
+                }
+            ], 
+            "label": "treatment 1 mapped reads dataset collection", 
+            "name": "Input dataset collection", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 285
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"collection_type\": \"list\", \"name\": \"treatment 1 mapped reads dataset collection\"}", 
+            "tool_version": null, 
+            "type": "data_collection_input", 
+            "uuid": "406f1cb9-325e-47df-8efd-141e01e262c6", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "treatment 1 mapped reads dataset collection"
+                }
+            ], 
+            "label": "treatment 2 mapped reads dataset collection", 
+            "name": "Input dataset collection", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 370
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"collection_type\": \"list\", \"name\": \"treatment 1 mapped reads dataset collection\"}", 
+            "tool_version": null, 
+            "type": "data_collection_input", 
+            "uuid": "be030889-e059-40fa-90d7-45a3cafa8634", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/lparsons/htseq_count/htseq_count/0.6.1galaxy1", 
+            "id": 3, 
+            "input_connections": {
+                "gfffile": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "samfile": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool htseq-count", 
+                    "name": "samfile"
+                }, 
+                {
+                    "description": "runtime parameter for tool htseq-count", 
+                    "name": "gfffile"
+                }
+            ], 
+            "label": null, 
+            "name": "htseq-count", 
+            "outputs": [
+                {
+                    "name": "counts", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "othercounts", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "samoutfile", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 475, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/lparsons/htseq_count/htseq_count/0.6.1galaxy1", 
+            "tool_shed_repository": {
+                "changeset_revision": "a6dcb86af112", 
+                "name": "htseq_count", 
+                "owner": "lparsons", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"featuretype\": \"\\\"exon\\\"\", \"samout_conditional\": \"{\\\"samout\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"__page__\": 0, \"idattr\": \"\\\"gene_id\\\"\", \"force_sort\": \"\\\"false\\\"\", \"stranded\": \"\\\"yes\\\"\", \"samfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"gfffile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"minaqual\": \"\\\"10\\\"\", \"mode\": \"\\\"union\\\"\", \"samfile|__identifier__\": \"\\\"IPI4_S4_sorted.bam\\\"\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "0.6.1galaxy1", 
+            "type": "tool", 
+            "uuid": "869a16e0-5748-4649-94f5-24847474e0ef", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/lparsons/htseq_count/htseq_count/0.6.1galaxy1", 
+            "id": 4, 
+            "input_connections": {
+                "gfffile": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "samfile": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool htseq-count", 
+                    "name": "samfile"
+                }, 
+                {
+                    "description": "runtime parameter for tool htseq-count", 
+                    "name": "gfffile"
+                }
+            ], 
+            "label": null, 
+            "name": "htseq-count", 
+            "outputs": [
+                {
+                    "name": "counts", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "othercounts", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "samoutfile", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 475, 
+                "top": 440
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/lparsons/htseq_count/htseq_count/0.6.1galaxy1", 
+            "tool_shed_repository": {
+                "changeset_revision": "a6dcb86af112", 
+                "name": "htseq_count", 
+                "owner": "lparsons", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"featuretype\": \"\\\"exon\\\"\", \"samout_conditional\": \"{\\\"samout\\\": \\\"false\\\", \\\"__current_case__\\\": 1}\", \"__page__\": 0, \"idattr\": \"\\\"gene_id\\\"\", \"force_sort\": \"\\\"false\\\"\", \"stranded\": \"\\\"yes\\\"\", \"samfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"gfffile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"minaqual\": \"\\\"10\\\"\", \"mode\": \"\\\"union\\\"\", \"samfile|__identifier__\": \"\\\"Pyc3_S7_sorted.bam\\\"\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "0.6.1galaxy1", 
+            "type": "tool", 
+            "uuid": "a221e013-7cc1-4eef-b31d-f85eae81b8b1", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/deseq2/deseq2/2.11.39", 
+            "id": 5, 
+            "input_connections": {
+                "rep_factorName_0|rep_factorLevel_0|countsFile": {
+                    "id": 3, 
+                    "output_name": "counts"
+                }, 
+                "rep_factorName_0|rep_factorLevel_1|countsFile": {
+                    "id": 4, 
+                    "output_name": "counts"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "DESeq2", 
+            "outputs": [
+                {
+                    "name": "split_output", 
+                    "type": "input"
+                }, 
+                {
+                    "name": "deseq_out", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "plots", 
+                    "type": "pdf"
+                }, 
+                {
+                    "name": "counts_out", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 713, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/deseq2/deseq2/2.11.39", 
+            "tool_shed_repository": {
+                "changeset_revision": "6f91b8ce6e07", 
+                "name": "deseq2", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"fit_type\": \"\\\"1\\\"\", \"__page__\": 0, \"tximport\": \"{\\\"tximport_selector\\\": \\\"count\\\", \\\"__current_case__\\\": 1}\", \"rep_factorName_0|rep_factorLevel_0|countsFile\": \"[{\\\"src\\\": \\\"hdca\\\", \\\"id\\\": \\\"81991b32733a4fc4\\\"}]\", \"rep_factorName_0|rep_factorLevel_1|countsFile\": \"[{\\\"src\\\": \\\"hdca\\\", \\\"id\\\": \\\"16e792953f5b45db\\\"}]\", \"outlier_replace_off\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"auto_mean_filter_off\": \"\\\"false\\\"\", \"rep_factorName\": \"[{\\\"__index__\\\": 0, \\\"factorName\\\": \\\"FactorName\\\", \\\"rep_factorLevel\\\": [{\\\"__index__\\\": 0, \\\"factorLevel\\\": \\\"FactorLevel_1\\\", \\\"countsFile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}, {\\\"__index__\\\": 1, \\\"factorLevel\\\": \\\"FactorLevel_2\\\", \\\"countsFile\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}]}]\", \"normCounts\": \"\\\"false\\\"\", \"outlier_filter_off\": \"\\\"false\\\"\", \"many_contrasts\": \"\\\"false\\\"\", \"pdf\": \"\\\"true\\\"\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\"}", 
+            "tool_version": "2.11.39", 
+            "type": "tool", 
+            "uuid": "0dde7978-8564-4066-a736-940612048edf", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "2ab136d7-cc21-4b85-b46e-882b814f9475"
+}

@@ -1,0 +1,5 @@
+## Aspergillus fumigatus genome sequence
+http://galaxyproject.github.io/training-material/Genome-Annotation/input_data/Aspergillus_sequence.fasta
+
+## UniProtKB/Swiss-Prot database
+ftp://ftp.ebi.ac.uk/pub/databases/uniprot/knowledgebase/uniprot_sprot.fasta.gz

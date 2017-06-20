@@ -1,0 +1,202 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "trinity-transcriptom-assembly-datasets-collection", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "forward reads datasets collection"
+                }
+            ], 
+            "label": "forward reads datasets collection", 
+            "name": "Input dataset collection", 
+            "outputs": [], 
+            "position": {
+                "left": 200.00001525878906, 
+                "top": 200.00001525878906
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"collection_type\": \"list\", \"name\": \"forward reads datasets collection\"}", 
+            "tool_version": null, 
+            "type": "data_collection_input", 
+            "uuid": "62d7248d-6b3c-4697-baea-28136cad3268", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "reverse reads datasets collection"
+                }
+            ], 
+            "label": "reverse reads datasets collection", 
+            "name": "Input dataset collection", 
+            "outputs": [], 
+            "position": {
+                "left": 200.00001525878906, 
+                "top": 301.9965515136719
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"collection_type\": \"list\", \"name\": \"reverse reads datasets collection\"}", 
+            "tool_version": null, 
+            "type": "data_collection_input", 
+            "uuid": "fa40887d-5937-4cc6-bed5-c4410672f2ca", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastq_groomer/fastq_groomer/1.0.4", 
+            "id": 2, 
+            "input_connections": {
+                "input_file": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FASTQ Groomer", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
+            "name": "FASTQ Groomer", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "fastqsanger"
+                }
+            ], 
+            "position": {
+                "left": 475.00001525878906, 
+                "top": 200.00001525878906
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastq_groomer/fastq_groomer/1.0.4", 
+            "tool_shed_repository": {
+                "changeset_revision": "e4d28c94242d", 
+                "name": "fastq_groomer", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_type\": \"\\\"sanger\\\"\", \"__rerun_remap_job_id__\": null, \"options_type\": \"{\\\"__current_case__\\\": 0, \\\"options_type_selector\\\": \\\"basic\\\"}\", \"input_file|__identifier__\": \"\\\"reads.left.fq\\\"\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\"}", 
+            "tool_version": "1.0.4", 
+            "type": "tool", 
+            "uuid": "149edf4f-1ffa-4b3b-9cf0-481fe3638792", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastq_groomer/fastq_groomer/1.0.4", 
+            "id": 3, 
+            "input_connections": {
+                "input_file": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FASTQ Groomer", 
+                    "name": "input_file"
+                }
+            ], 
+            "label": null, 
+            "name": "FASTQ Groomer", 
+            "outputs": [
+                {
+                    "name": "output_file", 
+                    "type": "fastqsanger"
+                }
+            ], 
+            "position": {
+                "left": 475.00001525878906, 
+                "top": 352.98614501953125
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastq_groomer/fastq_groomer/1.0.4", 
+            "tool_shed_repository": {
+                "changeset_revision": "e4d28c94242d", 
+                "name": "fastq_groomer", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_type\": \"\\\"sanger\\\"\", \"__rerun_remap_job_id__\": null, \"options_type\": \"{\\\"__current_case__\\\": 0, \\\"options_type_selector\\\": \\\"basic\\\"}\", \"input_file|__identifier__\": \"\\\"reads.right.fq\\\"\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\"}", 
+            "tool_version": "1.0.4", 
+            "type": "tool", 
+            "uuid": "b6fb15ba-7f2f-44c0-9f1e-f33604e213b6", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/2.4.0.0", 
+            "id": 4, 
+            "input_connections": {
+                "inputs|left_input": {
+                    "id": 2, 
+                    "output_name": "output_file"
+                }, 
+                "inputs|right_input": {
+                    "id": 3, 
+                    "output_name": "output_file"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Trinity", 
+                    "name": "inputs"
+                }, 
+                {
+                    "description": "runtime parameter for tool Trinity", 
+                    "name": "inputs"
+                }, 
+                {
+                    "description": "runtime parameter for tool Trinity", 
+                    "name": "additional_params"
+                }
+            ], 
+            "label": null, 
+            "name": "Trinity", 
+            "outputs": [
+                {
+                    "name": "assembled_transcripts", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 802.9861602783203, 
+                "top": 200.00001525878906
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/trinity/trinity/2.4.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "e65e640e6196", 
+                "name": "trinity", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"inputs\": \"{\\\"paired_or_single\\\": \\\"paired\\\", \\\"left_input\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0, \\\"right_input\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"jaccard_clip\\\": \\\"false\\\", \\\"strand\\\": {\\\"is_strand_specific\\\": \\\"false\\\", \\\"__current_case__\\\": 0}}\", \"additional_params\": \"{\\\"guided\\\": {\\\"__current_case__\\\": 0, \\\"is_guided\\\": \\\"no\\\"}, \\\"min_kmer_cov\\\": \\\"1\\\", \\\"long_reads\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"min_contig_length\\\": \\\"200\\\"}\", \"__page__\": 0, \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"left_input\": \"[{\\\"src\\\": \\\"hdca\\\", \\\"id\\\": \\\"8317ee2b0d0f62d9\\\"}]\", \"right_input\": \"[{\\\"src\\\": \\\"hdca\\\", \\\"id\\\": \\\"d3a4d6a5256f2d9a\\\"}]\", \"norm\": \"\\\"true\\\"\"}", 
+            "tool_version": "2.4.0.0", 
+            "type": "tool", 
+            "uuid": "58fff877-4b81-4da9-8a53-37336162ee5d", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "5632e091-058c-421c-b786-67a5fca164aa"
+}

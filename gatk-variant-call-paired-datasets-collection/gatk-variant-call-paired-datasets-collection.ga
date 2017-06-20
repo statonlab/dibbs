@@ -12,11 +12,11 @@
             "inputs": [
                 {
                     "description": "", 
-                    "name": "Input Dataset Collection"
+                    "name": "reads in paired dataset collection"
                 }
             ], 
-            "label": null, 
-            "name": "Input dataset collection", 
+            "label": "reads in paired dataset collection", 
+            "name": "Input dataset", 
             "outputs": [], 
             "position": {
                 "left": 200, 
@@ -24,10 +24,10 @@
             }, 
             "tool_errors": null, 
             "tool_id": null, 
-            "tool_state": "{\"collection_type\": \"list:paired\", \"name\": \"Input Dataset Collection\"}", 
+            "tool_state": "{\"name\": \"reads in paired dataset collection\"}", 
             "tool_version": null, 
-            "type": "data_collection_input", 
-            "uuid": "3c813c0c-35e3-4fc6-abf7-716545d00a8a", 
+            "type": "data_input", 
+            "uuid": "3f28e634-f970-4eaf-8f43-4d9879e07d88", 
             "workflow_outputs": []
         }, 
         "1": {
@@ -38,22 +38,22 @@
             "inputs": [
                 {
                     "description": "", 
-                    "name": "Input Dataset"
+                    "name": "reference genome"
                 }
             ], 
-            "label": null, 
-            "name": "Input dataset", 
+            "label": "reference genome", 
+            "name": "Input dataset collection", 
             "outputs": [], 
             "position": {
                 "left": 200, 
-                "top": 285
+                "top": 302
             }, 
             "tool_errors": null, 
             "tool_id": null, 
-            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_state": "{\"collection_type\": \"list:paired\", \"name\": \"reference genome\"}", 
             "tool_version": null, 
-            "type": "data_input", 
-            "uuid": "f96e4686-ec1d-41e5-a9e4-1e8d0bc3e606", 
+            "type": "data_collection_input", 
+            "uuid": "832eecd2-ebf5-466b-a7eb-4e1392a5fc41", 
             "workflow_outputs": []
         }, 
         "2": {
@@ -62,7 +62,7 @@
             "id": 2, 
             "input_connections": {
                 "input_file": {
-                    "id": 0, 
+                    "id": 1, 
                     "output_name": "output"
                 }
             }, 
@@ -96,7 +96,7 @@
             "tool_state": "{\"__page__\": 0, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_type\": \"\\\"sanger\\\"\", \"__rerun_remap_job_id__\": null, \"options_type\": \"{\\\"__current_case__\\\": 0, \\\"options_type_selector\\\": \\\"basic\\\"}\", \"input_file|__identifier__\": \"\\\"forward\\\"\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\"}", 
             "tool_version": "1.0.4", 
             "type": "tool", 
-            "uuid": "f1d95f36-eae6-4861-b504-e235e8150fd3", 
+            "uuid": "e524d876-6dc6-4ac2-9c76-fe3e6ba6c184", 
             "workflow_outputs": []
         }, 
         "3": {
@@ -109,7 +109,7 @@
                     "output_name": "output_file"
                 }, 
                 "reference_genome|own_file": {
-                    "id": 1, 
+                    "id": 0, 
                     "output_name": "output"
                 }
             }, 
@@ -171,7 +171,7 @@
             "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"library\": \"{\\\"aligned_file\\\": \\\"false\\\", \\\"unaligned_file\\\": \\\"false\\\", \\\"__current_case__\\\": 2, \\\"input_1\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"type\\\": \\\"paired_collection\\\", \\\"paired_options\\\": {\\\"no_mixed\\\": \\\"false\\\", \\\"dovetail\\\": \\\"false\\\", \\\"I\\\": \\\"0\\\", \\\"no_contain\\\": \\\"false\\\", \\\"no_discordant\\\": \\\"false\\\", \\\"no_overlap\\\": \\\"false\\\", \\\"__current_case__\\\": 0, \\\"X\\\": \\\"500\\\", \\\"fr_rf_ff\\\": \\\"--fr\\\", \\\"paired_options_selector\\\": \\\"yes\\\"}}\", \"reference_genome\": \"{\\\"source\\\": \\\"history\\\", \\\"__current_case__\\\": 1, \\\"own_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\", \"rg\": \"{\\\"rg_selector\\\": \\\"set\\\", \\\"KS\\\": \\\"\\\", \\\"read_group_sm_conditional\\\": {\\\"do_auto_name\\\": \\\"false\\\", \\\"SM\\\": \\\"group_sample_name\\\", \\\"__current_case__\\\": 1}, \\\"CN\\\": \\\"\\\", \\\"PU\\\": \\\"\\\", \\\"read_group_lb_conditional\\\": {\\\"do_auto_name\\\": \\\"false\\\", \\\"LB\\\": \\\"\\\", \\\"__current_case__\\\": 1}, \\\"read_group_id_conditional\\\": {\\\"do_auto_name\\\": \\\"false\\\", \\\"ID\\\": \\\"group_id\\\", \\\"__current_case__\\\": 1}, \\\"PG\\\": \\\"\\\", \\\"__current_case__\\\": 1, \\\"DT\\\": \\\"\\\", \\\"PI\\\": \\\"\\\", \\\"DS\\\": \\\"\\\", \\\"PL\\\": \\\"ILLUMINA\\\", \\\"FO\\\": \\\"\\\"}\", \"save_mapping_stats\": \"\\\"false\\\"\", \"analysis_type\": \"{\\\"analysis_type_selector\\\": \\\"simple\\\", \\\"presets\\\": \\\"no_presets\\\", \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\"}", 
             "tool_version": "2.2.6.2", 
             "type": "tool", 
-            "uuid": "3766f8e4-69d0-4b20-b3fc-ffa1d9d02807", 
+            "uuid": "c91a9687-bdf5-4ba5-b548-a98c615f787f", 
             "workflow_outputs": []
         }, 
         "4": {
@@ -184,7 +184,7 @@
                     "output_name": "output"
                 }, 
                 "reference_source|ref_file": {
-                    "id": 1, 
+                    "id": 0, 
                     "output_name": "output"
                 }
             }, 
@@ -223,10 +223,10 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"analysis_param_type\": \"{\\\"analysis_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"input_bam\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"rod_bind\": \"[]\"}", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"advanced\\\", \\\"pedigree_string_repeat\\\": [], \\\"disable_experimental_low_memory_sharding\\\": \\\"false\\\", \\\"pedigree_validation_type\\\": \\\"STRICT\\\", \\\"pedigree\\\": [], \\\"input_interval_repeat\\\": [], \\\"fix_misencoded_quality_scores\\\": \\\"false\\\", \\\"baq\\\": \\\"OFF\\\", \\\"input_exclude_interval_repeat\\\": [], \\\"default_base_qualities\\\": \\\"-1\\\", \\\"downsampling_type\\\": {\\\"downsampling_type_selector\\\": \\\"NONE\\\", \\\"__current_case__\\\": 0}, \\\"interval_merging\\\": \\\"ALL\\\", \\\"interval_set_rule\\\": \\\"UNION\\\", \\\"non_deterministic_random_seed\\\": \\\"false\\\", \\\"__current_case__\\\": 1, \\\"interval_padding\\\": \\\"0\\\", \\\"read_filter\\\": [], \\\"validation_strictness\\\": \\\"STRICT\\\", \\\"baq_gap_open_penalty\\\": \\\"40.0\\\", \\\"read_group_black_list_repeat\\\": [], \\\"use_original_qualities\\\": \\\"false\\\"}\", \"input_bam|__identifier__\": \"\\\"NA12878hiseq.wgs_chr20_2mb.30xPE.\\\"\", \"analysis_param_type\": \"{\\\"maxIntervalSize\\\": \\\"500\\\", \\\"minReadsAtLocus\\\": \\\"4\\\", \\\"windowSize\\\": \\\"10\\\", \\\"analysis_param_type_selector\\\": \\\"advanced\\\", \\\"mismatchFraction\\\": \\\"0.15\\\", \\\"__current_case__\\\": 1}\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"input_bam\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\", \"rod_bind\": \"[]\"}", 
             "tool_version": "2.8.0", 
             "type": "tool", 
-            "uuid": "b996db5b-059e-4ce8-af4d-8eec97465135", 
+            "uuid": "94c74b69-bd4d-4c96-bf12-e3cc84bc6d76", 
             "workflow_outputs": []
         }, 
         "5": {
@@ -239,8 +239,12 @@
                     "output_name": "output"
                 }, 
                 "reference_source|ref_file": {
-                    "id": 1, 
+                    "id": 0, 
                     "output_name": "output"
+                }, 
+                "target_intervals": {
+                    "id": 4, 
+                    "output_name": "output_interval"
                 }
             }, 
             "inputs": [
@@ -270,8 +274,8 @@
                 }
             ], 
             "position": {
-                "left": 1131, 
-                "top": 393
+                "left": 1421, 
+                "top": 200
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -282,10 +286,10 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"__page__\": 0, \"knowns_only\": \"\\\"false\\\"\", \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"lod_threshold\": \"\\\"5.0\\\"\", \"analysis_param_type\": \"{\\\"analysis_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"target_intervals\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"input_bam\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"__rerun_remap_job_id__\": null, \"rod_bind\": \"[]\"}", 
+            "tool_state": "{\"__page__\": 0, \"knowns_only\": \"\\\"false\\\"\", \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"advanced\\\", \\\"pedigree_string_repeat\\\": [], \\\"disable_experimental_low_memory_sharding\\\": \\\"false\\\", \\\"pedigree_validation_type\\\": \\\"STRICT\\\", \\\"pedigree\\\": [], \\\"input_interval_repeat\\\": [], \\\"fix_misencoded_quality_scores\\\": \\\"false\\\", \\\"baq\\\": \\\"OFF\\\", \\\"input_exclude_interval_repeat\\\": [], \\\"default_base_qualities\\\": \\\"-1\\\", \\\"downsampling_type\\\": {\\\"downsampling_type_selector\\\": \\\"NONE\\\", \\\"__current_case__\\\": 0}, \\\"interval_merging\\\": \\\"ALL\\\", \\\"interval_set_rule\\\": \\\"UNION\\\", \\\"non_deterministic_random_seed\\\": \\\"false\\\", \\\"__current_case__\\\": 1, \\\"interval_padding\\\": \\\"0\\\", \\\"read_filter\\\": [], \\\"validation_strictness\\\": \\\"STRICT\\\", \\\"baq_gap_open_penalty\\\": \\\"40.0\\\", \\\"read_group_black_list_repeat\\\": [], \\\"use_original_qualities\\\": \\\"false\\\"}\", \"lod_threshold\": \"\\\"5.0\\\"\", \"input_bam|__identifier__\": \"\\\"NA12878hiseq.wgs_chr20_2mb.30xPE.\\\"\", \"analysis_param_type\": \"{\\\"max_consensuses\\\": \\\"30\\\", \\\"max_reads_for_consensuses\\\": \\\"120\\\", \\\"no_original_alignment_tags\\\": \\\"false\\\", \\\"consensus_determination_model\\\": \\\"USE_READS\\\", \\\"entropy_threshold\\\": \\\"0.15\\\", \\\"max_positional_move_allowed\\\": \\\"200\\\", \\\"simplify_bam\\\": \\\"false\\\", \\\"analysis_param_type_selector\\\": \\\"advanced\\\", \\\"max_reads_for_realignment\\\": \\\"20000\\\", \\\"__current_case__\\\": 1, \\\"max_insert_size_for_movement\\\": \\\"3000\\\"}\", \"target_intervals\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"target_intervals|__identifier__\": \"\\\"NA12878hiseq.wgs_chr20_2mb.30xPE.\\\"\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"input_bam\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"rod_bind\": \"[]\"}", 
             "tool_version": "2.8.0", 
             "type": "tool", 
-            "uuid": "b6c2d7f0-7da5-452f-8357-bcd870db30bd", 
+            "uuid": "e92e8033-d3cb-4247-bb1b-73a8133de1bc", 
             "workflow_outputs": []
         }, 
         "6": {
@@ -298,15 +302,11 @@
                     "output_name": "output_bam"
                 }, 
                 "reference_source|ref_file": {
-                    "id": 1, 
+                    "id": 0, 
                     "output_name": "output"
                 }
             }, 
             "inputs": [
-                {
-                    "description": "runtime parameter for tool Unified Genotyper", 
-                    "name": "dbsnp_rod_bind_type"
-                }, 
                 {
                     "description": "runtime parameter for tool Unified Genotyper", 
                     "name": "reference_source"
@@ -329,7 +329,7 @@
                 }
             ], 
             "position": {
-                "left": 1459, 
+                "left": 1749, 
                 "top": 200
             }, 
             "post_job_actions": {}, 
@@ -341,10 +341,10 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"__page__\": 0, \"dbsnp_rod_bind_type\": \"{\\\"dbsnp_rod_bind_type_selector\\\": \\\"set_dbsnp\\\", \\\"dbsnp_input_rod\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1, \\\"dbsnp_rod_name\\\": \\\"dbsnp\\\"}\", \"genotype_likelihoods_model\": \"\\\"BOTH\\\"\", \"__rerun_remap_job_id__\": null, \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"standard_min_confidence_threshold_for_emitting\": \"\\\"30.0\\\"\", \"analysis_param_type\": \"{\\\"analysis_param_type_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"standard_min_confidence_threshold_for_calling\": \"\\\"30.0\\\"\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"input_bams\\\": [{\\\"__index__\\\": 0, \\\"input_bam\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}], \\\"__current_case__\\\": 1}\"}", 
+            "tool_state": "{\"__page__\": 0, \"reference_source|input_bams_0|input_bam|__identifier__\": \"\\\"NA12878hiseq.wgs_chr20_2mb.30xPE.\\\"\", \"dbsnp_rod_bind_type\": \"{\\\"dbsnp_rod_bind_type_selector\\\": \\\"exclude_dbsnp\\\", \\\"__current_case__\\\": 0}\", \"genotype_likelihoods_model\": \"\\\"BOTH\\\"\", \"__rerun_remap_job_id__\": null, \"gatk_param_type\": \"{\\\"gatk_param_type_selector\\\": \\\"advanced\\\", \\\"pedigree_string_repeat\\\": [], \\\"disable_experimental_low_memory_sharding\\\": \\\"false\\\", \\\"pedigree_validation_type\\\": \\\"STRICT\\\", \\\"pedigree\\\": [], \\\"input_interval_repeat\\\": [], \\\"fix_misencoded_quality_scores\\\": \\\"false\\\", \\\"baq\\\": \\\"OFF\\\", \\\"input_exclude_interval_repeat\\\": [], \\\"default_base_qualities\\\": \\\"-1\\\", \\\"downsampling_type\\\": {\\\"downsampling_type_selector\\\": \\\"NONE\\\", \\\"__current_case__\\\": 0}, \\\"interval_merging\\\": \\\"ALL\\\", \\\"interval_set_rule\\\": \\\"UNION\\\", \\\"non_deterministic_random_seed\\\": \\\"false\\\", \\\"__current_case__\\\": 1, \\\"interval_padding\\\": \\\"0\\\", \\\"read_filter\\\": [], \\\"validation_strictness\\\": \\\"STRICT\\\", \\\"baq_gap_open_penalty\\\": \\\"40.0\\\", \\\"read_group_black_list_repeat\\\": [], \\\"use_original_qualities\\\": \\\"false\\\"}\", \"standard_min_confidence_threshold_for_emitting\": \"\\\"30.0\\\"\", \"analysis_param_type\": \"{\\\"max_deletion_fraction\\\": \\\"0.05\\\", \\\"additional_annotations\\\": [], \\\"max_alternate_alleles\\\": \\\"6\\\", \\\"output_mode\\\": \\\"EMIT_VARIANTS_ONLY\\\", \\\"exclude_annotations\\\": null, \\\"indelGapOpenPenalty\\\": \\\"45\\\", \\\"doContextDependentGapPenalties\\\": \\\"false\\\", \\\"indelGapContinuationPenalty\\\": \\\"10\\\", \\\"indel_heterozygosity\\\": \\\"0.000125\\\", \\\"group\\\": null, \\\"analysis_param_type_selector\\\": \\\"advanced\\\", \\\"heterozygosity\\\": \\\"0.001\\\", \\\"sample_ploidy\\\": \\\"2\\\", \\\"__current_case__\\\": 1, \\\"pcr_error_rate\\\": \\\"0.0001\\\", \\\"indelHaplotypeSize\\\": \\\"80\\\", \\\"genotyping_mode_type\\\": {\\\"genotyping_mode\\\": \\\"DISCOVERY\\\", \\\"__current_case__\\\": 0}, \\\"min_indel_count_for_genotyping\\\": \\\"5\\\", \\\"annotation\\\": null, \\\"compute_SLOD\\\": \\\"false\\\", \\\"min_base_quality_score\\\": \\\"17\\\"}\", \"standard_min_confidence_threshold_for_calling\": \"\\\"30.0\\\"\", \"reference_source\": \"{\\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"input_bams\\\": [{\\\"__index__\\\": 0, \\\"input_bam\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}], \\\"__current_case__\\\": 1}\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\"}", 
             "tool_version": "2.8.0", 
             "type": "tool", 
-            "uuid": "04227b95-0f88-4b86-9662-dd972caa9925", 
+            "uuid": "9784e2e9-a9e1-459a-92e1-12a19a7137e0", 
             "workflow_outputs": []
         }, 
         "7": {
@@ -384,7 +384,7 @@
                 }
             ], 
             "position": {
-                "left": 1703, 
+                "left": 1993, 
                 "top": 200
             }, 
             "post_job_actions": {}, 
@@ -396,12 +396,12 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"spliceSiteSize\": \"\\\"2\\\"\", \"filter\": \"{\\\"specificEffects\\\": \\\"no\\\", \\\"__current_case__\\\": 0}\", \"filterOut\": \"null\", \"inputFormat\": \"\\\"vcf\\\"\", \"__page__\": 0, \"outputConditional\": \"{\\\"outputFormat\\\": \\\"vcf\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"udLength\": \"\\\"5000\\\"\", \"generate_stats\": \"\\\"true\\\"\", \"noLog\": \"\\\"true\\\"\", \"chr\": \"\\\"\\\"\", \"intervals\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"snpDb\": \"{\\\"genome_version\\\": \\\"hg19\\\", \\\"__current_case__\\\": 2, \\\"genomeSrc\\\": \\\"named\\\"}\", \"offset\": \"\\\"default\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"transcripts\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"annotations\": \"null\"}", 
+            "tool_state": "{\"spliceSiteSize\": \"\\\"2\\\"\", \"filter\": \"{\\\"specificEffects\\\": \\\"no\\\", \\\"__current_case__\\\": 0}\", \"filterOut\": \"null\", \"inputFormat\": \"\\\"vcf\\\"\", \"__page__\": 0, \"outputConditional\": \"{\\\"outputFormat\\\": \\\"vcf\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"udLength\": \"\\\"5000\\\"\", \"generate_stats\": \"\\\"true\\\"\", \"noLog\": \"\\\"true\\\"\", \"chr\": \"\\\"\\\"\", \"intervals\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"snpDb\": \"{\\\"genome_version\\\": \\\"hg19\\\", \\\"__current_case__\\\": 2, \\\"genomeSrc\\\": \\\"named\\\"}\", \"offset\": \"\\\"default\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"transcripts\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\", \"annotations\": \"null\", \"input|__identifier__\": \"\\\"NA12878hiseq.wgs_chr20_2mb.30xPE.\\\"\"}", 
             "tool_version": "4.0.0", 
             "type": "tool", 
-            "uuid": "7d0d3903-61a4-4e6f-ba97-bc129022875e", 
+            "uuid": "fee1a88d-2d03-41b0-ba63-f9a4a901ac0f", 
             "workflow_outputs": []
         }
     }, 
-    "uuid": "47e93322-81fd-42aa-b57e-a5a683539141"
+    "uuid": "0cb9a45b-bba2-46f0-abb1-4d198e7952c4"
 }

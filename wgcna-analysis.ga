@@ -1,0 +1,188 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "wgcna-analysis", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": ""
+                }
+            ], 
+            "label": "Gene expression data", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 200
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "9fcc0713-d156-4125-a892-edd1865aa615", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": ""
+                }
+            ], 
+            "label": "Trait data", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 285
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "2e1b0883-1618-4b06-8932-09a5b45c63f2", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "wgcna_preprocessing", 
+            "id": 2, 
+            "input_connections": {
+                "expression_data": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool WGCNA: preprocessing", 
+                    "name": "expression_data"
+                }
+            ], 
+            "label": null, 
+            "name": "WGCNA: preprocessing", 
+            "outputs": [
+                {
+                    "name": "wgcna_preprocessing", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "preprocessing_workspace", 
+                    "type": "rdata"
+                }
+            ], 
+            "position": {
+                "left": 430, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "wgcna_preprocessing", 
+            "tool_state": "{\"__page__\": 0, \"expression_data\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"echo\": \"\\\"false\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "5f002d3e-c34f-40bd-b556-2a3e657f7872", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "wgcna_construct_network", 
+            "id": 3, 
+            "input_connections": {
+                "preprocessing_workspace": {
+                    "id": 2, 
+                    "output_name": "preprocessing_workspace"
+                }, 
+                "trait_data": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool WGCNA: construct network", 
+                    "name": "trait_data"
+                }, 
+                {
+                    "description": "runtime parameter for tool WGCNA: construct network", 
+                    "name": "preprocessing_workspace"
+                }
+            ], 
+            "label": null, 
+            "name": "WGCNA: construct network", 
+            "outputs": [
+                {
+                    "name": "wgcna_construct_network", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "construct_network_workspace", 
+                    "type": "rdata"
+                }
+            ], 
+            "position": {
+                "left": 737, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "wgcna_construct_network", 
+            "tool_state": "{\"__page__\": 0, \"trait_data\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"echo\": \"\\\"false\\\"\", \"height_cut\": \"\\\"15.0\\\"\", \"preprocessing_workspace\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "ffc2c505-8c8d-4efc-a869-e95276d75e80", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "wgcna_eigengene_visualization", 
+            "id": 4, 
+            "input_connections": {
+                "construct_network_workspace": {
+                    "id": 3, 
+                    "output_name": "construct_network_workspace"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool WGCNA: eigengene visualization", 
+                    "name": "construct_network_workspace"
+                }
+            ], 
+            "label": null, 
+            "name": "WGCNA: eigengene visualization", 
+            "outputs": [
+                {
+                    "name": "wgcna_eigengene_visualization", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 1065, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "wgcna_eigengene_visualization", 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"echo\": \"\\\"false\\\"\", \"plot_genes\": \"\\\"400\\\"\", \"construct_network_workspace\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"soft_threshold_power\": \"\\\"6\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "9ae2b0d4-97da-4214-8fc8-16fac849c2f8", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "e83efb3e-8565-4478-b14b-fa7566b10a9e"
+}

@@ -2,7 +2,7 @@
     "a_galaxy_workflow": "true", 
     "annotation": "", 
     "format-version": "0.1", 
-    "name": "trinity-transcriptom-assembly-datasets-collection", 
+    "name": "trinity-transcriptome-assembly-pe-dataset-collection", 
     "steps": {
         "0": {
             "annotation": "", 
@@ -12,22 +12,22 @@
             "inputs": [
                 {
                     "description": "", 
-                    "name": "forward reads datasets collection"
+                    "name": ""
                 }
             ], 
-            "label": "forward reads datasets collection", 
+            "label": "left/forward reads collection", 
             "name": "Input dataset collection", 
             "outputs": [], 
             "position": {
-                "left": 200.00001525878906, 
-                "top": 200.00001525878906
+                "left": 200, 
+                "top": 200
             }, 
             "tool_errors": null, 
             "tool_id": null, 
-            "tool_state": "{\"collection_type\": \"list\", \"name\": \"forward reads datasets collection\"}", 
+            "tool_state": "{\"collection_type\": \"list\", \"name\": \"\"}", 
             "tool_version": null, 
             "type": "data_collection_input", 
-            "uuid": "62d7248d-6b3c-4697-baea-28136cad3268", 
+            "uuid": "04111df6-feef-48b1-8b91-077bcd66d0d2", 
             "workflow_outputs": []
         }, 
         "1": {
@@ -38,22 +38,22 @@
             "inputs": [
                 {
                     "description": "", 
-                    "name": "reverse reads datasets collection"
+                    "name": ""
                 }
             ], 
-            "label": "reverse reads datasets collection", 
+            "label": "right/reverse reads collection", 
             "name": "Input dataset collection", 
             "outputs": [], 
             "position": {
-                "left": 200.00001525878906, 
-                "top": 301.9965515136719
+                "left": 200, 
+                "top": 302
             }, 
             "tool_errors": null, 
             "tool_id": null, 
-            "tool_state": "{\"collection_type\": \"list\", \"name\": \"reverse reads datasets collection\"}", 
+            "tool_state": "{\"collection_type\": \"list\", \"name\": \"\"}", 
             "tool_version": null, 
             "type": "data_collection_input", 
-            "uuid": "fa40887d-5937-4cc6-bed5-c4410672f2ca", 
+            "uuid": "69d0a40e-69da-4654-886e-ad33cce7380b", 
             "workflow_outputs": []
         }, 
         "2": {
@@ -81,8 +81,8 @@
                 }
             ], 
             "position": {
-                "left": 475.00001525878906, 
-                "top": 200.00001525878906
+                "left": 475, 
+                "top": 200
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -93,10 +93,10 @@
                 "owner": "devteam", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"__page__\": 0, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_type\": \"\\\"sanger\\\"\", \"__rerun_remap_job_id__\": null, \"options_type\": \"{\\\"__current_case__\\\": 0, \\\"options_type_selector\\\": \\\"basic\\\"}\", \"input_file|__identifier__\": \"\\\"reads.left.fq\\\"\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\"}", 
+            "tool_state": "{\"__page__\": 0, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_type\": \"\\\"sanger\\\"\", \"__rerun_remap_job_id__\": null, \"options_type\": \"{\\\"__current_case__\\\": 0, \\\"options_type_selector\\\": \\\"basic\\\"}\", \"input_file|__identifier__\": \"\\\"reads2.left.fq\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
             "tool_version": "1.0.4", 
             "type": "tool", 
-            "uuid": "149edf4f-1ffa-4b3b-9cf0-481fe3638792", 
+            "uuid": "7bf728ff-86cd-4e1d-9d87-9005316b8ac9", 
             "workflow_outputs": []
         }, 
         "3": {
@@ -124,8 +124,8 @@
                 }
             ], 
             "position": {
-                "left": 475.00001525878906, 
-                "top": 352.98614501953125
+                "left": 475, 
+                "top": 353
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -136,10 +136,10 @@
                 "owner": "devteam", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"__page__\": 0, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_type\": \"\\\"sanger\\\"\", \"__rerun_remap_job_id__\": null, \"options_type\": \"{\\\"__current_case__\\\": 0, \\\"options_type_selector\\\": \\\"basic\\\"}\", \"input_file|__identifier__\": \"\\\"reads.right.fq\\\"\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\"}", 
+            "tool_state": "{\"__page__\": 0, \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"input_type\": \"\\\"sanger\\\"\", \"__rerun_remap_job_id__\": null, \"options_type\": \"{\\\"__current_case__\\\": 0, \\\"options_type_selector\\\": \\\"basic\\\"}\", \"input_file|__identifier__\": \"\\\"reads2.right.fq\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
             "tool_version": "1.0.4", 
             "type": "tool", 
-            "uuid": "b6fb15ba-7f2f-44c0-9f1e-f33604e213b6", 
+            "uuid": "5f3ff1b2-21a5-4447-b635-3a9f9edd379a", 
             "workflow_outputs": []
         }, 
         "4": {
@@ -179,8 +179,8 @@
                 }
             ], 
             "position": {
-                "left": 802.9861602783203, 
-                "top": 200.00001525878906
+                "left": 803, 
+                "top": 200
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -191,12 +191,12 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"inputs\": \"{\\\"paired_or_single\\\": \\\"paired\\\", \\\"left_input\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0, \\\"right_input\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"jaccard_clip\\\": \\\"false\\\", \\\"strand\\\": {\\\"is_strand_specific\\\": \\\"false\\\", \\\"__current_case__\\\": 0}}\", \"additional_params\": \"{\\\"guided\\\": {\\\"__current_case__\\\": 0, \\\"is_guided\\\": \\\"no\\\"}, \\\"min_kmer_cov\\\": \\\"1\\\", \\\"long_reads\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"min_contig_length\\\": \\\"200\\\"}\", \"__page__\": 0, \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"left_input\": \"[{\\\"src\\\": \\\"hdca\\\", \\\"id\\\": \\\"8317ee2b0d0f62d9\\\"}]\", \"right_input\": \"[{\\\"src\\\": \\\"hdca\\\", \\\"id\\\": \\\"d3a4d6a5256f2d9a\\\"}]\", \"norm\": \"\\\"true\\\"\"}", 
+            "tool_state": "{\"inputs\": \"{\\\"paired_or_single\\\": \\\"paired\\\", \\\"left_input\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0, \\\"right_input\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"jaccard_clip\\\": \\\"false\\\", \\\"strand\\\": {\\\"is_strand_specific\\\": \\\"false\\\", \\\"__current_case__\\\": 0}}\", \"additional_params\": \"{\\\"guided\\\": {\\\"__current_case__\\\": 0, \\\"is_guided\\\": \\\"no\\\"}, \\\"min_kmer_cov\\\": \\\"1\\\", \\\"long_reads\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"min_contig_length\\\": \\\"200\\\"}\", \"__page__\": 0, \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"left_input\": \"[{\\\"src\\\": \\\"hdca\\\", \\\"id\\\": 50}]\", \"right_input\": \"[{\\\"src\\\": \\\"hdca\\\", \\\"id\\\": 51}]\", \"norm\": \"\\\"true\\\"\"}", 
             "tool_version": "2.4.0.0", 
             "type": "tool", 
-            "uuid": "58fff877-4b81-4da9-8a53-37336162ee5d", 
+            "uuid": "b869e131-b133-44dd-b1df-c5ac67ceabad", 
             "workflow_outputs": []
         }
     }, 
-    "uuid": "5632e091-058c-421c-b786-67a5fca164aa"
+    "uuid": "0411980e-ee79-42cb-a8f5-9c44b8c39db2"
 }

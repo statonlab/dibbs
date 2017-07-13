@@ -1,0 +1,285 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "deseq2-analysis", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Input Dataset Collection"
+                }
+            ], 
+            "label": "Aligned SAM/BAM file collection", 
+            "name": "Input dataset collection", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 200
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"collection_type\": \"list\", \"name\": \"Input Dataset Collection\"}", 
+            "tool_version": null, 
+            "type": "data_collection_input", 
+            "uuid": "497973c5-0ecf-449b-884b-9cf635f04fa5", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": ""
+                }
+            ], 
+            "label": "GFF file", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 302
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "ded32f2e-cf3e-4f44-baae-1c12413fb998", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": ""
+                }
+            ], 
+            "label": "Sample table file for DESeq2", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 387
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "bdf8d25e-a473-42fc-bb00-75801d4c2170", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/lparsons/htseq_count/htseq_count/0.6.1galaxy3", 
+            "id": 3, 
+            "input_connections": {
+                "gfffile": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "samfile": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool htseq-count", 
+                    "name": "samfile"
+                }, 
+                {
+                    "description": "runtime parameter for tool htseq-count", 
+                    "name": "gfffile"
+                }
+            ], 
+            "label": null, 
+            "name": "htseq-count", 
+            "outputs": [
+                {
+                    "name": "counts", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "othercounts", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "samoutfile", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 475, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/lparsons/htseq_count/htseq_count/0.6.1galaxy3", 
+            "tool_shed_repository": {
+                "changeset_revision": "620d5603d1a8", 
+                "name": "htseq_count", 
+                "owner": "lparsons", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"featuretype\": \"\\\"exon\\\"\", \"samout_conditional\": \"{\\\"samout\\\": \\\"No\\\", \\\"__current_case__\\\": 1}\", \"__page__\": 0, \"idattr\": \"\\\"gene_name\\\"\", \"force_sort\": \"\\\"false\\\"\", \"stranded\": \"\\\"yes\\\"\", \"samfile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"gfffile\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"minaqual\": \"\\\"10\\\"\", \"mode\": \"\\\"union\\\"\", \"samfile|__identifier__\": \"\\\"100H_14-100_S5_R1_001_combined.fastq\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null}", 
+            "tool_version": "0.6.1galaxy3", 
+            "type": "tool", 
+            "uuid": "bbcbd8e6-443f-40a8-a68c-1bb7b32334b1", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "DESeq", 
+            "id": 4, 
+            "input_connections": {
+                "count_files": {
+                    "id": 3, 
+                    "output_name": "counts"
+                }, 
+                "sample_table": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool DESeq2: DESeq", 
+                    "name": "sample_table"
+                }, 
+                {
+                    "description": "runtime parameter for tool DESeq2: DESeq", 
+                    "name": "count_files"
+                }
+            ], 
+            "label": null, 
+            "name": "DESeq2: DESeq", 
+            "outputs": [
+                {
+                    "name": "DESeq", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "deseq_workspace", 
+                    "type": "rdata"
+                }
+            ], 
+            "position": {
+                "left": 713, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "DESeq", 
+            "tool_state": "{\"__page__\": 0, \"design_formula\": \"\\\"~ time\\\"\", \"__rerun_remap_job_id__\": null, \"sample_table\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"echo\": \"\\\"false\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"count_files\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "2e3d7fdd-d051-4e07-8fdd-fcea730b6a98", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "DESeq_visualization", 
+            "id": 5, 
+            "input_connections": {
+                "deseq_workspace": {
+                    "id": 4, 
+                    "output_name": "deseq_workspace"
+                }, 
+                "sample_table": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool DESeq2: Visualization", 
+                    "name": "deseq_workspace"
+                }, 
+                {
+                    "description": "runtime parameter for tool DESeq2: Visualization", 
+                    "name": "sample_table"
+                }
+            ], 
+            "label": null, 
+            "name": "DESeq2: Visualization", 
+            "outputs": [
+                {
+                    "name": "deseq_visualization", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 981, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "DESeq_visualization", 
+            "tool_state": "{\"__page__\": 0, \"deseq_workspace\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"intgroups_pca\": \"[{\\\"intgroup\\\": \\\"3\\\", \\\"__index__\\\": 0}]\", \"intgroups_mds\": \"[{\\\"intgroup\\\": \\\"3\\\", \\\"__index__\\\": 0}]\", \"echo\": \"\\\"false\\\"\", \"sample_table\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "0142f784-84b0-458a-826d-0d4231626064", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": "DESeq_results", 
+            "id": 6, 
+            "input_connections": {
+                "deseq_workspace": {
+                    "id": 4, 
+                    "output_name": "deseq_workspace"
+                }, 
+                "sample_table": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool DESeq2: Results", 
+                    "name": "deseq_workspace"
+                }, 
+                {
+                    "description": "runtime parameter for tool DESeq2: Results", 
+                    "name": "sample_table"
+                }
+            ], 
+            "label": null, 
+            "name": "DESeq2: Results", 
+            "outputs": [
+                {
+                    "name": "deseq_results", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 981, 
+                "top": 357
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "DESeq_results", 
+            "tool_state": "{\"__page__\": 0, \"clustering_groups\": \"[{\\\"__index__\\\": 0, \\\"group\\\": \\\"3\\\"}]\", \"__rerun_remap_job_id__\": null, \"deseq_workspace\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"sample_table\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"contrast_group\": \"\\\"3\\\"\", \"treatment\": \"\\\"earlyFlower\\\"\", \"echo\": \"\\\"false\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"condition\": \"\\\"lateFlower\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "52b6391c-69c1-4715-b4a7-d5d7d291a39e", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "4939cade-f619-43b3-b7d3-7a2f9ba5da0b"
+}

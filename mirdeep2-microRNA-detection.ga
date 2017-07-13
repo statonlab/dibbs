@@ -1,0 +1,285 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "mirdeep2-microRNA-detection", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": ""
+                }
+            ], 
+            "label": "Read input file", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 200
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "ce3db1b8-99fb-489e-a274-928a19d998ad", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": ""
+                }
+            ], 
+            "label": "Reference genome", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 285
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "eee6e240-ce19-405e-bf87-8c88389fff15", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": ""
+                }
+            ], 
+            "label": "miRBase mature miRNA for this species", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 386.9921875
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "5fe9ac77-964f-4d30-b7e6-025deba0276a", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 3, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": ""
+                }
+            ], 
+            "label": "miRBase mature miRNA from related species", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 505.9765625
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "2c2e3ce2-6248-4ebf-8160-df309fe1d2bd", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 4, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": ""
+                }
+            ], 
+            "label": "precursor sequences", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 625
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "13ac25d4-a71c-4201-8eb7-6744d098e2ac", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "mirdeep2_mapper_site", 
+            "id": 5, 
+            "input_connections": {
+                "reads": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "reference_genome": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool mirdeep2_mapper", 
+                    "name": "reads"
+                }, 
+                {
+                    "description": "runtime parameter for tool mirdeep2_mapper", 
+                    "name": "reference_genome"
+                }
+            ], 
+            "label": null, 
+            "name": "mirdeep2_mapper", 
+            "outputs": [
+                {
+                    "name": "mirdeep2_mapper_site", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "reads_collapsed", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "reads_collapsed_vs_genome", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "report_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 430, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "mirdeep2_mapper_site", 
+            "tool_state": "{\"__page__\": 0, \"clip_3_adapter\": \"\\\"\\\"\", \"parse_to_fasta\": \"\\\"true\\\"\", \"__rerun_remap_job_id__\": null, \"map_up_to_position\": \"\\\"5\\\"\", \"map_with_one_mismatch\": \"\\\"false\\\"\", \"echo\": \"\\\"false\\\"\", \"reference_genome\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"reads\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"clean_entries\": \"\\\"true\\\"\", \"collapse_reads_or_not\": \"\\\"true\\\"\", \"discard_shorter_reads\": \"\\\"18\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "ad8f8088-851b-4ef9-b9c2-5e2b657ca257", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": "mirdeep2", 
+            "id": 6, 
+            "input_connections": {
+                "collapsed_reads": {
+                    "id": 5, 
+                    "output_name": "reads_collapsed"
+                }, 
+                "precursor_sequences": {
+                    "id": 4, 
+                    "output_name": "output"
+                }, 
+                "reads_mapping": {
+                    "id": 5, 
+                    "output_name": "reads_collapsed_vs_genome"
+                }, 
+                "reference_genome": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "related_species_mature_mirna": {
+                    "id": 3, 
+                    "output_name": "output"
+                }, 
+                "species_mature_mirna": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool mirdeep2", 
+                    "name": "collapsed_reads"
+                }, 
+                {
+                    "description": "runtime parameter for tool mirdeep2", 
+                    "name": "related_species_mature_mirna"
+                }, 
+                {
+                    "description": "runtime parameter for tool mirdeep2", 
+                    "name": "reference_genome"
+                }, 
+                {
+                    "description": "runtime parameter for tool mirdeep2", 
+                    "name": "species_mature_mirna"
+                }, 
+                {
+                    "description": "runtime parameter for tool mirdeep2", 
+                    "name": "precursor_sequences"
+                }, 
+                {
+                    "description": "runtime parameter for tool mirdeep2", 
+                    "name": "reads_mapping"
+                }
+            ], 
+            "label": null, 
+            "name": "mirdeep2", 
+            "outputs": [
+                {
+                    "name": "mirdeep2_site", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "csv_result", 
+                    "type": "csv"
+                }, 
+                {
+                    "name": "html_result", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "report_log", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 757.96875, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "mirdeep2", 
+            "tool_state": "{\"reads_mapping\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__page__\": 0, \"max_precursor_number\": \"\\\"50000\\\"\", \"collapsed_reads\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"related_species_mature_mirna\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"randfold_analysis\": \"\\\"false\\\"\", \"min_score_cutoff\": \"\\\"0\\\"\", \"min_read_stack_height\": \"\\\"\\\"\", \"reference_genome\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"switch\": \"\\\"false\\\"\", \"species_mature_mirna\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"precursor_sequences\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"echo\": \"\\\"false\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"species\": \"\\\"all\\\"\"}", 
+            "tool_version": "1.0.0", 
+            "type": "tool", 
+            "uuid": "f3821c29-4e8a-49fc-8da1-7b48abe289a4", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "2c264317-99db-427d-9f2d-8022dd07c5df"
+}

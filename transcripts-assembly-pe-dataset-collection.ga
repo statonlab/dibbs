@@ -2,7 +2,7 @@
     "a_galaxy_workflow": "true", 
     "annotation": "", 
     "format-version": "0.1", 
-    "name": "transcripts-assembly-paired-datasets-collection", 
+    "name": "transcripts-assembly-pe-dataset-collection", 
     "steps": {
         "0": {
             "annotation": "", 
@@ -12,22 +12,22 @@
             "inputs": [
                 {
                     "description": "", 
-                    "name": "Input Dataset"
+                    "name": "V_corymbosum_scaffold_May_2013.fa"
                 }
             ], 
             "label": null, 
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 200, 
-                "top": 200
+                "left": 199.9921875, 
+                "top": 199.9921875
             }, 
             "tool_errors": null, 
             "tool_id": null, 
-            "tool_state": "{\"name\": \"Input Dataset\"}", 
+            "tool_state": "{\"name\": \"V_corymbosum_scaffold_May_2013.fa\"}", 
             "tool_version": null, 
             "type": "data_input", 
-            "uuid": "e1e40241-a854-44c1-aae3-871fe1513ee1", 
+            "uuid": "d0bd03ee-c3ca-4ea7-bc99-62de2e964061", 
             "workflow_outputs": []
         }, 
         "1": {
@@ -45,7 +45,7 @@
             "name": "Input dataset collection", 
             "outputs": [], 
             "position": {
-                "left": 200, 
+                "left": 199.9921875, 
                 "top": 285
             }, 
             "tool_errors": null, 
@@ -53,7 +53,7 @@
             "tool_state": "{\"collection_type\": \"list:paired\", \"name\": \"Input Dataset Collection\"}", 
             "tool_version": null, 
             "type": "data_collection_input", 
-            "uuid": "f90c7dd2-58dd-4631-ae10-d637c737bfd3", 
+            "uuid": "7bc44a92-56b1-4060-b1c9-2ebdc4de77d4", 
             "workflow_outputs": []
         }, 
         "2": {
@@ -74,10 +74,6 @@
                 {
                     "description": "runtime parameter for tool HISAT2", 
                     "name": "reference_genome"
-                }, 
-                {
-                    "description": "runtime parameter for tool HISAT2", 
-                    "name": "spliced_options"
                 }
             ], 
             "label": null, 
@@ -105,8 +101,8 @@
                 }
             ], 
             "position": {
-                "left": 475, 
-                "top": 200
+                "left": 474.984375, 
+                "top": 199.9921875
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -117,16 +113,59 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"alignment_options\": \"{\\\"coefficient\\\": \\\"0\\\", \\\"constant_term\\\": \\\"0\\\", \\\"alignment_options_selector\\\": \\\"advanced\\\", \\\"skip_reverse\\\": \\\"false\\\", \\\"ignore_quals\\\": \\\"false\\\", \\\"function_type\\\": \\\"C\\\", \\\"__current_case__\\\": 1, \\\"skip_forward\\\": \\\"false\\\"}\", \"max_seeds\": \"\\\"\\\"\", \"input_format\": \"{\\\"paired\\\": {\\\"aligned_file\\\": \\\"false\\\", \\\"unaligned_file\\\": \\\"false\\\", \\\"paired_end_options\\\": {\\\"paired_end_options_selector\\\": \\\"advanced\\\", \\\"skip_reverse\\\": \\\"false\\\", \\\"no_mixed\\\": \\\"false\\\", \\\"__current_case__\\\": 1, \\\"no_discordant\\\": \\\"false\\\"}, \\\"paired_selector\\\": \\\"paired_collection\\\", \\\"reads\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}, \\\"input_format_selector\\\": \\\"fastq\\\", \\\"__current_case__\\\": 1}\", \"__page__\": 0, \"max_primary\": \"\\\"\\\"\", \"scoring_options\": \"{\\\"coefficient\\\": \\\"0\\\", \\\"no_softclip\\\": \\\"false\\\", \\\"min_mismatch\\\": \\\"2\\\", \\\"constant_term\\\": \\\"0\\\", \\\"ref_open_penalty\\\": \\\"5\\\", \\\"read_open_penalty\\\": \\\"5\\\", \\\"soft_clip_penalty_max\\\": \\\"2\\\", \\\"read_extend_penalty\\\": \\\"3\\\", \\\"max_mismatch\\\": \\\"6\\\", \\\"function_type\\\": \\\"C\\\", \\\"ambiguous_penalty\\\": \\\"1\\\", \\\"match_bonus\\\": \\\"2\\\", \\\"__current_case__\\\": 1, \\\"soft_clip_penalty_min\\\": \\\"1\\\", \\\"scoring_options_selector\\\": \\\"advanced\\\", \\\"ref_extend_penalty\\\": \\\"3\\\"}\", \"reference_genome\": \"{\\\"reference_genome_source\\\": \\\"history\\\", \\\"history_item\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"spliced_options\": \"{\\\"coefficient\\\": \\\"0\\\", \\\"canonical_penalty\\\": \\\"0\\\", \\\"no_spliced_alignment_options\\\": {\\\"no_spliced_alignment\\\": \\\"--no-spliced-alignment\\\", \\\"maxins\\\": \\\"500\\\", \\\"minins\\\": \\\"0\\\", \\\"__current_case__\\\": 0}, \\\"nc_function_type\\\": \\\"G\\\", \\\"constant_term\\\": \\\"0\\\", \\\"nc_coefficient\\\": \\\"1\\\", \\\"noncanonical_penalty\\\": \\\"3\\\", \\\"known_splice_gtf\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"nc_constant_term\\\": \\\"-8\\\", \\\"min_intron\\\": \\\"20\\\", \\\"function_type\\\": \\\"C\\\", \\\"rna_strandness\\\": \\\"\\\", \\\"__current_case__\\\": 1, \\\"tma\\\": \\\"\\\", \\\"max_intron\\\": \\\"500000\\\", \\\"spliced_options_selector\\\": \\\"advanced\\\"}\", \"input_options\": \"{\\\"trim_three\\\": \\\"0\\\", \\\"skip\\\": \\\"0\\\", \\\"input_options_selector\\\": \\\"advanced\\\", \\\"trim_five\\\": \\\"0\\\", \\\"__current_case__\\\": 1, \\\"stop_after\\\": \\\"0\\\"}\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"paired_options\": \"{\\\"__current_case__\\\": 1, \\\"dovetail\\\": \\\"false\\\", \\\"no_discordant\\\": \\\"false\\\", \\\"maxins\\\": \\\"500\\\", \\\"overlap\\\": \\\"false\\\", \\\"minins\\\": \\\"0\\\", \\\"contain\\\": \\\"false\\\", \\\"paired_options_selector\\\": \\\"advanced\\\", \\\"no_mixed\\\": \\\"false\\\"}\", \"secondary\": \"\\\"false\\\"\"}", 
+            "tool_state": "{\"alignment_options\": \"{\\\"__current_case__\\\": 0, \\\"alignment_options_selector\\\": \\\"defaults\\\"}\", \"max_seeds\": \"\\\"\\\"\", \"input_format\": \"{\\\"paired\\\": {\\\"aligned_file\\\": \\\"false\\\", \\\"unaligned_file\\\": \\\"false\\\", \\\"paired_end_options\\\": {\\\"paired_end_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}, \\\"paired_selector\\\": \\\"paired_collection\\\", \\\"reads\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 0}, \\\"input_format_selector\\\": \\\"fastq\\\", \\\"__current_case__\\\": 1}\", \"__page__\": 0, \"max_primary\": \"\\\"\\\"\", \"scoring_options\": \"{\\\"scoring_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}\", \"reference_genome\": \"{\\\"reference_genome_source\\\": \\\"history\\\", \\\"history_item\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"spliced_options\": \"{\\\"spliced_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}\", \"input_options\": \"{\\\"input_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"paired_options\": \"{\\\"paired_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}\", \"secondary\": \"\\\"false\\\"\"}", 
             "tool_version": "2.0.5.1", 
             "type": "tool", 
-            "uuid": "fb01c1f4-fef4-4565-aab2-4d02f5c22609", 
+            "uuid": "ad8fae60-a339-43a7-a0c3-0c3335902ec4", 
             "workflow_outputs": []
         }, 
         "3": {
             "annotation": "", 
-            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/stringtie/stringtie/1.3.3", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtools_flagstat/samtools_flagstat/2.0.1", 
             "id": 3, 
+            "input_connections": {
+                "input1": {
+                    "id": 2, 
+                    "output_name": "output_alignments"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Flagstat", 
+                    "name": "input1"
+                }
+            ], 
+            "label": null, 
+            "name": "Flagstat", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 802.9921875, 
+                "top": 199.9921875
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtools_flagstat/samtools_flagstat/2.0.1", 
+            "tool_shed_repository": {
+                "changeset_revision": "cc61ade70eb8", 
+                "name": "samtools_flagstat", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"input1|__identifier__\": \"\\\"100M_emerald_6.5_Sample10_L1..paired.trimmed\\\"\"}", 
+            "tool_version": "2.0.1", 
+            "type": "tool", 
+            "uuid": "a4b42460-9492-4539-ba76-e727e7fdf9ee", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/stringtie/stringtie/1.3.3", 
+            "id": 4, 
             "input_connections": {
                 "input_bam": {
                     "id": 2, 
@@ -188,8 +227,8 @@
                 }
             ], 
             "position": {
-                "left": 802.98828125, 
-                "top": 200
+                "left": 802.9921875, 
+                "top": 336
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -200,19 +239,19 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"__page__\": 0, \"input_bam\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"input_bam|__identifier__\": \"\\\"100M_emerald_6.5_Sample12_L1..paired.trimmed\\\"\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\", \"option_set\": \"{\\\"min_bundle_cov\\\": \\\"2\\\", \\\"__current_case__\\\": 1, \\\"abundance_estimation\\\": \\\"false\\\", \\\"min_tlen\\\": \\\"200\\\", \\\"bdist\\\": \\\"50\\\", \\\"min_anchor_len\\\": \\\"10\\\", \\\"multi_mapping\\\": \\\"false\\\", \\\"sensitive\\\": \\\"false\\\", \\\"fraction\\\": \\\"0.15\\\", \\\"disable_trimming\\\": \\\"false\\\", \\\"omit_sequences\\\": \\\"\\\", \\\"name_prefix\\\": \\\"STRG\\\", \\\"options\\\": \\\"advanced\\\", \\\"bundle_fraction\\\": \\\"0.95\\\", \\\"min_anchor_cov\\\": \\\"1\\\"}\", \"guide\": \"{\\\"use_guide\\\": \\\"no\\\", \\\"__current_case__\\\": 0}\"}", 
+            "tool_state": "{\"__page__\": 0, \"input_bam\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"input_bam|__identifier__\": \"\\\"100M_emerald_6.5_Sample10_L1..paired.trimmed\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"option_set\": \"{\\\"options\\\": \\\"default\\\", \\\"__current_case__\\\": 0}\", \"guide\": \"{\\\"use_guide\\\": \\\"no\\\", \\\"__current_case__\\\": 0}\"}", 
             "tool_version": "1.3.3", 
             "type": "tool", 
-            "uuid": "213abcb8-8036-4177-90e2-af0adb6b047b", 
+            "uuid": "80c27978-bcc7-4a01-a88c-62fed63a8fa5", 
             "workflow_outputs": []
         }, 
-        "4": {
+        "5": {
             "annotation": "", 
             "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/stringtie/stringtie_merge/1.3.3", 
-            "id": 4, 
+            "id": 5, 
             "input_connections": {
                 "input_gtf": {
-                    "id": 3, 
+                    "id": 4, 
                     "output_name": "output_gtf"
                 }
             }, 
@@ -235,8 +274,8 @@
                 }
             ], 
             "position": {
-                "left": 1130.99609375, 
-                "top": 200
+                "left": 1131, 
+                "top": 199.9921875
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
@@ -247,12 +286,12 @@
                 "owner": "iuc", 
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             }, 
-            "tool_state": "{\"keep_introns\": \"\\\"false\\\"\", \"min_iso\": \"\\\"0.01\\\"\", \"__page__\": 0, \"min_fpkm\": \"\\\"1.0\\\"\", \"min_len\": \"\\\"50\\\"\", \"guide_gff\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"min_cov\": \"\\\"0\\\"\", \"__rerun_remap_job_id__\": null, \"min_tpm\": \"\\\"1.0\\\"\", \"chromInfo\": \"\\\"/opt/galaxy/galaxy-app/config/len/?.len\\\"\", \"input_gtf\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"gap_len\": \"\\\"250\\\"\"}", 
+            "tool_state": "{\"keep_introns\": \"\\\"false\\\"\", \"min_iso\": \"\\\"0.01\\\"\", \"__page__\": 0, \"min_fpkm\": \"\\\"1.0\\\"\", \"min_len\": \"\\\"50\\\"\", \"guide_gff\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"min_cov\": \"\\\"0\\\"\", \"__rerun_remap_job_id__\": null, \"min_tpm\": \"\\\"1.0\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"input_gtf\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"gap_len\": \"\\\"250\\\"\"}", 
             "tool_version": "1.3.3", 
             "type": "tool", 
-            "uuid": "a29f810e-c88f-4b4a-9662-6a66ac3c193e", 
+            "uuid": "cdaee22b-415d-4e19-a2a9-630f15f34567", 
             "workflow_outputs": []
         }
     }, 
-    "uuid": "0e83cfdf-e853-46f2-8b67-7f8b99042ce8"
+    "uuid": "34cf08db-240d-488c-a26a-4e00653ea7e8"
 }

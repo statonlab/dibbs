@@ -1,0 +1,163 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "genome-functional-annotation", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Genome sequence in fasta format"
+                }
+            ], 
+            "label": "Genome sequence in fasta format", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 200
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Genome sequence in fasta format\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "0d08132e-8937-453d-8fa2-0df519de8408", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Protein database in fasta format"
+                }
+            ], 
+            "label": "Protein database in fasta format", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 319
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Protein database in fasta format\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "2c4e29cd-a496-492f-9255-3950b5fdd035", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/augustus/augustus/3.1.0", 
+            "id": 2, 
+            "input_connections": {
+                "input_genome": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Augustus", 
+                    "name": "input_genome"
+                }
+            ], 
+            "label": null, 
+            "name": "Augustus", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "gtf"
+                }, 
+                {
+                    "name": "protein_output", 
+                    "type": "fasta"
+                }, 
+                {
+                    "name": "codingseq_output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 430, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/augustus/augustus/3.1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "f5075dee9d6b", 
+                "name": "augustus", 
+                "owner": "bgruening", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"input_genome\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"gff\": \"\\\"false\\\"\", \"__rerun_remap_job_id__\": null, \"genemodel\": \"\\\"complete\\\"\", \"utr\": \"\\\"false\\\"\", \"noInFrameStop\": \"\\\"false\\\"\", \"outputs\": \"[\\\"protein\\\", \\\"codingseq\\\", \\\"introns\\\", \\\"start\\\", \\\"stop\\\", \\\"cds\\\"]\", \"singlestrand\": \"\\\"false\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"organism\": \"\\\"arabidopsis\\\"\", \"strand\": \"\\\"both\\\"\"}", 
+            "tool_version": "3.1.0", 
+            "type": "tool", 
+            "uuid": "b002f188-702d-499f-905d-7afa0941d8bd", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastp_wrapper/0.2.00", 
+            "id": 3, 
+            "input_connections": {
+                "db_opts|subject": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "query": {
+                    "id": 2, 
+                    "output_name": "protein_output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool NCBI BLAST+ blastp", 
+                    "name": "db_opts"
+                }, 
+                {
+                    "description": "runtime parameter for tool NCBI BLAST+ blastp", 
+                    "name": "query"
+                }
+            ], 
+            "label": null, 
+            "name": "NCBI BLAST+ blastp", 
+            "outputs": [
+                {
+                    "name": "output1", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 690, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/ncbi_blast_plus/ncbi_blastp_wrapper/0.2.00", 
+            "tool_shed_repository": {
+                "changeset_revision": "7538e2bfcd41", 
+                "name": "ncbi_blast_plus", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"evalue_cutoff\": \"\\\"0.001\\\"\", \"__page__\": 0, \"adv_opts\": \"{\\\"adv_opts_selector\\\": \\\"basic\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"db_opts\": \"{\\\"db_opts_selector\\\": \\\"file\\\", \\\"subject\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"histdb\\\": \\\"\\\", \\\"__current_case__\\\": 2, \\\"database\\\": \\\"\\\"}\", \"query\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"blast_type\": \"\\\"blastp\\\"\", \"output\": \"{\\\"out_format\\\": \\\"ext\\\", \\\"__current_case__\\\": 1}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "0.2.00", 
+            "type": "tool", 
+            "uuid": "56455df2-5a0a-4fcb-ae20-ca6de65fe131", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "18a3cef3-0e9e-4173-8fed-2b1f4f876b60"
+}

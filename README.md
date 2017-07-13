@@ -1,18 +1,18 @@
-## Docker galaxy dibbs
+## Galaxy docker image
 
-* github repository: [https://github.com/statonlab/docker-galaxy-staton](https://github.com/statonlab/docker-galaxy-staton)
+* github repository: [https://github.com/MingChen0919/docker-galaxy-grreport-dibbs](https://github.com/MingChen0919/docker-galaxy-grreport-dibbs)
 * Build docker image from the github repository
 ```
 git clone https://github.com/MingChen0919/docker-galaxy-dibbss.git
-cd docker-galaxy-dibbs
-docker build -t "galaxy-dibbs" .
+cd docker-galaxy-grreport-dibbs
+docker build -t "docker-galaxy-grreport-dibbs" .
 ```
 * Start a container and launch galaxy
 
 ```
 docker run -i -t -p 8080:80 -p 8021:21 -p 8022:22 \
-  -e "GALAXY_CONFIG_ADMIN_USERS=your_email@gmail.com" \
-  mingchen0919/galaxy-dibbs \
+  -e "GALAXY_CONFIG_ADMIN_USERS=example@gmail.com" \
+  mingchen0919/docker-galaxy-grreport-dibbs \
   /bin/bash
 ```
 

@@ -5,60 +5,60 @@
     "name": "wgcna-analysis", 
     "steps": {
         "0": {
-            "annotation": "", 
+            "annotation": "Each row represents a gene and each column represents a sample.", 
             "content_id": null, 
             "id": 0, 
             "input_connections": {}, 
             "inputs": [
                 {
-                    "description": "", 
-                    "name": ""
+                    "description": "Each row represents a gene and each column represents a sample.", 
+                    "name": "expression data in csv"
                 }
             ], 
-            "label": "Gene expression data", 
+            "label": "expression data in csv", 
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 200, 
-                "top": 200
+                "left": 220.13890075683594, 
+                "top": 200.00001525878906
             }, 
             "tool_errors": null, 
             "tool_id": null, 
-            "tool_state": "{\"name\": \"\"}", 
+            "tool_state": "{\"name\": \"expression data in csv\"}", 
             "tool_version": null, 
             "type": "data_input", 
-            "uuid": "9fcc0713-d156-4125-a892-edd1865aa615", 
+            "uuid": "275b531d-241b-41a5-95c7-8473ae5d36a0", 
             "workflow_outputs": []
         }, 
         "1": {
-            "annotation": "", 
+            "annotation": "Each row is a sample and each column represents a trait.", 
             "content_id": null, 
             "id": 1, 
             "input_connections": {}, 
             "inputs": [
                 {
-                    "description": "", 
-                    "name": ""
+                    "description": "Each row is a sample and each column represents a trait.", 
+                    "name": "trait data in csv"
                 }
             ], 
-            "label": "Trait data", 
+            "label": "trait data in csv", 
             "name": "Input dataset", 
             "outputs": [], 
             "position": {
-                "left": 200, 
-                "top": 285
+                "left": 220.13890075683594, 
+                "top": 285.00001525878906
             }, 
             "tool_errors": null, 
             "tool_id": null, 
-            "tool_state": "{\"name\": \"\"}", 
+            "tool_state": "{\"name\": \"trait data in csv\"}", 
             "tool_version": null, 
             "type": "data_input", 
-            "uuid": "2e1b0883-1618-4b06-8932-09a5b45c63f2", 
+            "uuid": "a476a7ff-2a06-4642-b70e-d415be644f9f", 
             "workflow_outputs": []
         }, 
         "2": {
             "annotation": "", 
-            "content_id": "wgcna_preprocessing", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_wgcna/wgcna_preprocessing/1.0.0", 
             "id": 2, 
             "input_connections": {
                 "expression_data": {
@@ -85,21 +85,27 @@
                 }
             ], 
             "position": {
-                "left": 430, 
-                "top": 200
+                "left": 450.13890075683594, 
+                "top": 200.00001525878906
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
-            "tool_id": "wgcna_preprocessing", 
-            "tool_state": "{\"__page__\": 0, \"expression_data\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"echo\": \"\\\"false\\\"\"}", 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_wgcna/wgcna_preprocessing/1.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "240af4b07b92", 
+                "name": "rmarkdown_wgcna", 
+                "owner": "mingchen0919", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"expression_data\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/main/sites/galaxy/galaxy/htdocs/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"echo\": \"\\\"false\\\"\"}", 
             "tool_version": "1.0.0", 
             "type": "tool", 
-            "uuid": "5f002d3e-c34f-40bd-b556-2a3e657f7872", 
+            "uuid": "f3593dad-c091-4aae-87be-4397c24583b9", 
             "workflow_outputs": []
         }, 
         "3": {
             "annotation": "", 
-            "content_id": "wgcna_construct_network", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_wgcna/wgcna_construct_network/1.0.0", 
             "id": 3, 
             "input_connections": {
                 "preprocessing_workspace": {
@@ -134,21 +140,27 @@
                 }
             ], 
             "position": {
-                "left": 737, 
-                "top": 200
+                "left": 757.1354217529297, 
+                "top": 200.00001525878906
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
-            "tool_id": "wgcna_construct_network", 
-            "tool_state": "{\"__page__\": 0, \"trait_data\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"echo\": \"\\\"false\\\"\", \"height_cut\": \"\\\"15.0\\\"\", \"preprocessing_workspace\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_wgcna/wgcna_construct_network/1.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "240af4b07b92", 
+                "name": "rmarkdown_wgcna", 
+                "owner": "mingchen0919", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"trait_data\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"echo\": \"\\\"false\\\"\", \"height_cut\": \"\\\"15.0\\\"\", \"preprocessing_workspace\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/main/sites/galaxy/galaxy/htdocs/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
             "tool_version": "1.0.0", 
             "type": "tool", 
-            "uuid": "ffc2c505-8c8d-4efc-a869-e95276d75e80", 
+            "uuid": "8424a4ea-9363-4982-b181-a2370f9b23cd", 
             "workflow_outputs": []
         }, 
         "4": {
             "annotation": "", 
-            "content_id": "wgcna_eigengene_visualization", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_wgcna/wgcna_eigengene_visualization/1.0.0", 
             "id": 4, 
             "input_connections": {
                 "construct_network_workspace": {
@@ -171,18 +183,24 @@
                 }
             ], 
             "position": {
-                "left": 1065, 
-                "top": 200
+                "left": 1085.138900756836, 
+                "top": 200.00001525878906
             }, 
             "post_job_actions": {}, 
             "tool_errors": null, 
-            "tool_id": "wgcna_eigengene_visualization", 
-            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"echo\": \"\\\"false\\\"\", \"plot_genes\": \"\\\"400\\\"\", \"construct_network_workspace\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"soft_threshold_power\": \"\\\"6\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_wgcna/wgcna_eigengene_visualization/1.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "240af4b07b92", 
+                "name": "rmarkdown_wgcna", 
+                "owner": "mingchen0919", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"echo\": \"\\\"false\\\"\", \"plot_genes\": \"\\\"400\\\"\", \"construct_network_workspace\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"soft_threshold_power\": \"\\\"6\\\"\", \"chromInfo\": \"\\\"/main/sites/galaxy/galaxy/htdocs/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
             "tool_version": "1.0.0", 
             "type": "tool", 
-            "uuid": "9ae2b0d4-97da-4214-8fc8-16fac849c2f8", 
+            "uuid": "c07ef6dc-9b00-474f-be1a-26e59f534a03", 
             "workflow_outputs": []
         }
     }, 
-    "uuid": "e83efb3e-8565-4478-b14b-fa7566b10a9e"
+    "uuid": "f1d4eda2-62b5-4b39-98d3-58bb4efbd076"
 }

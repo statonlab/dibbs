@@ -1,0 +1,171 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "differential expression analysis (DESeq2)", 
+    "steps": {
+        "0": {
+            "annotation": "The first column is sample names, the second column is corresponding read counts file names, the remaining column are conditions information.", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "The first column is sample names, the second column is corresponding read counts file names, the remaining column are conditions information.", 
+                    "name": "sample table"
+                }
+            ], 
+            "label": "sample table", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 200
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"sample table\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "63ce370b-cfe0-4bf6-bc08-0a835e3533df", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "read counts dataset collection"
+                }
+            ], 
+            "label": "read counts dataset collection", 
+            "name": "Input dataset collection", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 285
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"collection_type\": \"list\", \"name\": \"read counts dataset collection\"}", 
+            "tool_version": null, 
+            "type": "data_collection_input", 
+            "uuid": "647d8835-0675-4977-a498-0a7a60a8fd54", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_deseq2/DESeq/2.0.0", 
+            "id": 2, 
+            "input_connections": {
+                "count_files": {
+                    "id": 1, 
+                    "output_name": "output"
+                }, 
+                "sample_table": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool DESeq2: DESeq", 
+                    "name": "sample_table"
+                }, 
+                {
+                    "description": "runtime parameter for tool DESeq2: DESeq", 
+                    "name": "count_files"
+                }
+            ], 
+            "label": null, 
+            "name": "DESeq2: DESeq", 
+            "outputs": [
+                {
+                    "name": "report", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "sink_message", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "deseq_workspace", 
+                    "type": "rdata"
+                }
+            ], 
+            "position": {
+                "left": 475, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_deseq2/DESeq/2.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "924d122d0027", 
+                "name": "rmarkdown_deseq2", 
+                "owner": "mingchen0919", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"design_formula\": \"\\\"~ time\\\"\", \"__rerun_remap_job_id__\": null, \"sample_table\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"echo\": \"\\\"false\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"count_files\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
+            "tool_version": "2.0.0", 
+            "type": "tool", 
+            "uuid": "01352181-e8ae-48e5-bc59-3384819fec73", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_deseq2/DESeq_results/2.0.0", 
+            "id": 3, 
+            "input_connections": {
+                "deseq_workspace": {
+                    "id": 2, 
+                    "output_name": "deseq_workspace"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool DESeq2: Results", 
+                    "name": "deseq_workspace"
+                }
+            ], 
+            "label": null, 
+            "name": "DESeq2: Results", 
+            "outputs": [
+                {
+                    "name": "report", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "sink_message", 
+                    "type": "txt"
+                }, 
+                {
+                    "name": "deseq_results", 
+                    "type": "csv"
+                }
+            ], 
+            "position": {
+                "left": 743, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_deseq2/DESeq_results/2.0.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "924d122d0027", 
+                "name": "rmarkdown_deseq2", 
+                "owner": "mingchen0919", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"deseq_workspace\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"echo\": \"\\\"false\\\"\", \"treatment\": \"\\\"earlyFlower\\\"\", \"contrast_factor\": \"\\\"time\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"clustering_factors\": \"\\\"time\\\"\", \"condition\": \"\\\"lateFlower\\\"\"}", 
+            "tool_version": "2.0.0", 
+            "type": "tool", 
+            "uuid": "a0460909-92c2-4cac-a87a-49fd44e478bb", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "542eb304-f8e7-4332-9bbd-f8836216a53d"
+}

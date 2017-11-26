@@ -1,0 +1,206 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "wgcna analysis", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "expression data"
+                }
+            ], 
+            "label": "expression data", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 200
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"expression data\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "59af637d-27c8-4c89-af2d-3eb438f10f59", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "trait data"
+                }
+            ], 
+            "label": "trait data", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 285
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"trait data\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "799ef433-0bd5-4263-a205-082f3387abd9", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_wgcna/wgcna_preprocessing/1.0.2", 
+            "id": 2, 
+            "input_connections": {
+                "expression_data": {
+                    "id": 0, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool WGCNA: preprocessing", 
+                    "name": "expression_data"
+                }
+            ], 
+            "label": null, 
+            "name": "WGCNA: preprocessing", 
+            "outputs": [
+                {
+                    "name": "wgcna_preprocessing", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "preprocessing_workspace", 
+                    "type": "rdata"
+                }
+            ], 
+            "position": {
+                "left": 430, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_wgcna/wgcna_preprocessing/1.0.2", 
+            "tool_shed_repository": {
+                "changeset_revision": "05bcad4b5b4f", 
+                "name": "rmarkdown_wgcna", 
+                "owner": "mingchen0919", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"expression_data\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"echo\": \"\\\"false\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "uuid": "792985fb-91e7-4baa-aebc-b33f67f76de7", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_wgcna/wgcna_construct_network/1.0.2", 
+            "id": 3, 
+            "input_connections": {
+                "preprocessing_workspace": {
+                    "id": 2, 
+                    "output_name": "preprocessing_workspace"
+                }, 
+                "trait_data": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool WGCNA: construct network", 
+                    "name": "trait_data"
+                }, 
+                {
+                    "description": "runtime parameter for tool WGCNA: construct network", 
+                    "name": "preprocessing_workspace"
+                }
+            ], 
+            "label": null, 
+            "name": "WGCNA: construct network", 
+            "outputs": [
+                {
+                    "name": "wgcna_construct_network", 
+                    "type": "html"
+                }, 
+                {
+                    "name": "construct_network_workspace", 
+                    "type": "rdata"
+                }
+            ], 
+            "position": {
+                "left": 737, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_wgcna/wgcna_construct_network/1.0.2", 
+            "tool_shed_repository": {
+                "changeset_revision": "05bcad4b5b4f", 
+                "name": "rmarkdown_wgcna", 
+                "owner": "mingchen0919", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"trait_data\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"__rerun_remap_job_id__\": null, \"echo\": \"\\\"false\\\"\", \"height_cut\": \"\\\"15.0\\\"\", \"preprocessing_workspace\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "uuid": "7a4d1033-c40f-4592-bf63-9402e6af2728", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_wgcna/wgcna_eigengene_visualization/1.0.2", 
+            "id": 4, 
+            "input_connections": {
+                "construct_network_workspace": {
+                    "id": 3, 
+                    "output_name": "construct_network_workspace"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool WGCNA: eigengene visualization", 
+                    "name": "construct_network_workspace"
+                }
+            ], 
+            "label": null, 
+            "name": "WGCNA: eigengene visualization", 
+            "outputs": [
+                {
+                    "name": "wgcna_eigengene_visualization", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 1065, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/mingchen0919/rmarkdown_wgcna/wgcna_eigengene_visualization/1.0.2", 
+            "tool_shed_repository": {
+                "changeset_revision": "05bcad4b5b4f", 
+                "name": "rmarkdown_wgcna", 
+                "owner": "mingchen0919", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"echo\": \"\\\"false\\\"\", \"plot_genes\": \"\\\"400\\\"\", \"construct_network_workspace\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"soft_threshold_power\": \"\\\"6\\\"\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "1.0.2", 
+            "type": "tool", 
+            "uuid": "bffe29fa-ac66-4db7-95ff-df5937e0a65d", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "0f3c8cdb-5f58-4532-928e-a2a66fb45c5e"
+}

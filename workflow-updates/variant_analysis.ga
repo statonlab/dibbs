@@ -1,0 +1,422 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "variant analysis", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "alignment datasets collection (bam)"
+                }
+            ], 
+            "label": "alignment datasets collection (bam)", 
+            "name": "Input dataset collection", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 200
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"collection_type\": \"list\", \"name\": \"alignment datasets collection (bam)\"}", 
+            "tool_version": null, 
+            "type": "data_collection_input", 
+            "uuid": "36a1431f-7d47-4b3f-b66d-01937e593a07", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Reference genome (.2bit)"
+                }
+            ], 
+            "label": "Reference genome (.2bit)", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 302
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Reference genome (.2bit)\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "3807f328-e813-4173-bf08-e120113da4e0", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "hg19.2bit"
+                }
+            ], 
+            "label": "dbSNP file", 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 200, 
+                "top": 404
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"hg19.2bit\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "160019c0-9ac2-4ac6-b3e4-fe1dc47c5a1c", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff_download/4.3r.1", 
+            "id": 3, 
+            "input_connections": {}, 
+            "inputs": [], 
+            "label": null, 
+            "name": "SnpEff Download", 
+            "outputs": [
+                {
+                    "name": "snpeff_db", 
+                    "type": "snpeffdb"
+                }
+            ], 
+            "position": {
+                "left": 200, 
+                "top": 489
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff_download/4.3r.1", 
+            "tool_shed_repository": {
+                "changeset_revision": "68693743661e", 
+                "name": "snpeff", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"__rerun_remap_job_id__\": null, \"genome_version\": \"\\\"hg19\\\"\", \"__page__\": 0}", 
+            "tool_version": "4.3r.1", 
+            "type": "tool", 
+            "uuid": "3fb674f4-087e-406c-8e16-443952f0d3c5", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/ucsc_twobittofa/ucsc-twobittofa/332", 
+            "id": 4, 
+            "input_connections": {
+                "twobit_input": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool twoBitToFa", 
+                    "name": "seqList"
+                }, 
+                {
+                    "description": "runtime parameter for tool twoBitToFa", 
+                    "name": "twobit_input"
+                }
+            ], 
+            "label": null, 
+            "name": "twoBitToFa", 
+            "outputs": [
+                {
+                    "name": "fasta_output", 
+                    "type": "fasta"
+                }
+            ], 
+            "position": {
+                "left": 475, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/ucsc_twobittofa/ucsc-twobittofa/332", 
+            "tool_shed_repository": {
+                "changeset_revision": "4a81db403bd9", 
+                "name": "ucsc_twobittofa", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"end\": \"\\\"\\\"\", \"seq\": \"\\\"\\\"\", \"seqList\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"start\": \"\\\"\\\"\", \"__rerun_remap_job_id__\": null, \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"twobit_input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"noMask\": \"\\\"false\\\"\"}", 
+            "tool_version": "332", 
+            "type": "tool", 
+            "uuid": "3e3631a8-7cd7-4cdb-8d3b-a42743e5dfc6", 
+            "workflow_outputs": []
+        }, 
+        "5": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/freebayes/freebayes/1.1.0.46-0", 
+            "id": 5, 
+            "input_connections": {
+                "reference_source|batchmode|input_bams": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "reference_source|ref_file": {
+                    "id": 4, 
+                    "output_name": "fasta_output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool FreeBayes", 
+                    "name": "reference_source"
+                }
+            ], 
+            "label": null, 
+            "name": "FreeBayes", 
+            "outputs": [
+                {
+                    "name": "output_vcf", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "output_failed_alleles_bed", 
+                    "type": "bed"
+                }, 
+                {
+                    "name": "output_trace", 
+                    "type": "txt"
+                }
+            ], 
+            "position": {
+                "left": 803, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/freebayes/freebayes/1.1.0.46-0", 
+            "tool_shed_repository": {
+                "changeset_revision": "156b60c1530f", 
+                "name": "freebayes", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"reference_source|input_bams|__identifier__\": \"\\\"father.bam\\\"\", \"__rerun_remap_job_id__\": null, \"options_type\": \"{\\\"__current_case__\\\": 1, \\\"options_type_selector\\\": \\\"simple\\\"}\", \"reference_source\": \"{\\\"batchmode\\\": {\\\"input_bams\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"processmode\\\": \\\"individual\\\", \\\"__current_case__\\\": 0}, \\\"ref_file\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"reference_source_selector\\\": \\\"history\\\", \\\"__current_case__\\\": 1}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"target_limit_type\": \"{\\\"target_limit_type_selector\\\": \\\"do_not_limit\\\", \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "1.1.0.46-0", 
+            "type": "tool", 
+            "uuid": "10031343-4651-4982-9886-3869a44f62f3", 
+            "workflow_outputs": []
+        }, 
+        "6": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/vcfallelicprimitives/vcfallelicprimitives/1.0.0_rc1.0", 
+            "id": 6, 
+            "input_connections": {
+                "input": {
+                    "id": 5, 
+                    "output_name": "output_vcf"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool VcfAllelicPrimitives:", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "VcfAllelicPrimitives:", 
+            "outputs": [
+                {
+                    "name": "out_file1", 
+                    "type": "vcf"
+                }
+            ], 
+            "position": {
+                "left": 1131, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/vcfallelicprimitives/vcfallelicprimitives/1.0.0_rc1.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "0a69cff7946e", 
+                "name": "vcfallelicprimitives", 
+                "owner": "devteam", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"max_length\": \"\\\"200\\\"\", \"__rerun_remap_job_id__\": null, \"keep_geno\": \"\\\"true\\\"\", \"keep_info\": \"\\\"true\\\"\", \"t_option\": \"\\\"Split primitives\\\"\", \"m_option\": \"\\\"false\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"input|__identifier__\": \"\\\"father.bam\\\"\"}", 
+            "tool_version": "1.0.0_rc1.0", 
+            "type": "tool", 
+            "uuid": "714de294-a5ac-474f-8644-da55213147ba", 
+            "workflow_outputs": []
+        }, 
+        "7": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_filter/4.3.0", 
+            "id": 7, 
+            "input_connections": {
+                "input": {
+                    "id": 6, 
+                    "output_name": "out_file1"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool SnpSift Filter", 
+                    "name": "input"
+                }
+            ], 
+            "label": null, 
+            "name": "SnpSift Filter", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "vcf"
+                }
+            ], 
+            "position": {
+                "left": 1383, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_filter/4.3.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "b04635ebfab0", 
+                "name": "snpsift", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"filtering\": \"{\\\"mode\\\": \\\"entries\\\", \\\"__current_case__\\\": 0}\", \"expr\": \"\\\"(QUAL >= 30 ) & (DP >= 10)\\\"\", \"__rerun_remap_job_id__\": null, \"inverse\": \"\\\"false\\\"\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\"}", 
+            "tool_version": "4.3.0", 
+            "type": "tool", 
+            "uuid": "4663df6f-aeec-4ddb-a601-791940e2337d", 
+            "workflow_outputs": []
+        }, 
+        "8": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_annotate/4.3.0", 
+            "id": 8, 
+            "input_connections": {
+                "dbSnp": {
+                    "id": 2, 
+                    "output_name": "output"
+                }, 
+                "input": {
+                    "id": 7, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool SnpSift Annotate", 
+                    "name": "input"
+                }, 
+                {
+                    "description": "runtime parameter for tool SnpSift Annotate", 
+                    "name": "dbSnp"
+                }
+            ], 
+            "label": null, 
+            "name": "SnpSift Annotate", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "vcf"
+                }
+            ], 
+            "position": {
+                "left": 1662, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpsift/snpSift_annotate/4.3.0", 
+            "tool_shed_repository": {
+                "changeset_revision": "b04635ebfab0", 
+                "name": "snpsift", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"annotate\": \"{\\\"id\\\": \\\"id\\\", \\\"__current_case__\\\": 0}\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"dbSnp\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"input|__identifier__\": \"\\\"father.bam\\\"\"}", 
+            "tool_version": "4.3.0", 
+            "type": "tool", 
+            "uuid": "48b6f65d-9391-4f60-94a6-f2893722caba", 
+            "workflow_outputs": []
+        }, 
+        "9": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/4.3r.1", 
+            "id": 9, 
+            "input_connections": {
+                "input": {
+                    "id": 8, 
+                    "output_name": "output"
+                }, 
+                "snpDb|snpeff_db": {
+                    "id": 3, 
+                    "output_name": "snpeff_db"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "intervals"
+                }, 
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "snpDb"
+                }, 
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "input"
+                }, 
+                {
+                    "description": "runtime parameter for tool SnpEff", 
+                    "name": "transcripts"
+                }
+            ], 
+            "label": null, 
+            "name": "SnpEff", 
+            "outputs": [
+                {
+                    "name": "snpeff_output", 
+                    "type": "vcf"
+                }, 
+                {
+                    "name": "statsFile", 
+                    "type": "html"
+                }
+            ], 
+            "position": {
+                "left": 1990, 
+                "top": 200
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/snpeff/snpEff/4.3r.1", 
+            "tool_shed_repository": {
+                "changeset_revision": "68693743661e", 
+                "name": "snpeff", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"spliceSiteSize\": \"\\\"2\\\"\", \"filter\": \"{\\\"specificEffects\\\": \\\"no\\\", \\\"__current_case__\\\": 0}\", \"filterOut\": \"null\", \"input\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"inputFormat\": \"\\\"vcf\\\"\", \"__page__\": 0, \"outputConditional\": \"{\\\"outputFormat\\\": \\\"vcf\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"udLength\": \"\\\"5000\\\"\", \"generate_stats\": \"\\\"true\\\"\", \"noLog\": \"\\\"true\\\"\", \"chr\": \"\\\"\\\"\", \"intervals\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"snpDb\": \"{\\\"snpeff_db\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1, \\\"genomeSrc\\\": \\\"history\\\", \\\"reg_section\\\": {\\\"regulation\\\": null}}\", \"offset\": \"\\\"default\\\"\", \"spliceRegion\": \"{\\\"__current_case__\\\": 0, \\\"setSpliceRegions\\\": \\\"no\\\"}\", \"transcripts\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"chromInfo\": \"\\\"/galaxy-central/tool-data/shared/ucsc/chrom/?.len\\\"\", \"annotations\": \"null\", \"input|__identifier__\": \"\\\"father.bam\\\"\"}", 
+            "tool_version": "4.3r.1", 
+            "type": "tool", 
+            "uuid": "862c1875-bcbe-4e8d-a08b-4b25af9f4ab9", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "9e964672-c096-4999-af52-6edb1fec5590"
+}

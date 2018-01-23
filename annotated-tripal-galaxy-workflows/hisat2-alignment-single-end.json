@@ -2244,7 +2244,7 @@
       "form_key": "55_adv_fieldset",
       "name": "Advanced Options",
       "type": "fieldset",
-      "value": "",
+      "value": "defaults",
       "extra": {
         "description_above": 1,
         "private": 0,
@@ -2265,7 +2265,7 @@
       "form_key": "step_7_80",
       "name": "Input options",
       "type": "fixed_value",
-      "value": "",
+      "value": "defaults",
       "extra": {
         "title_display": "before",
         "description": "",
@@ -2327,7 +2327,7 @@
       "form_key": "step_7_88",
       "name": "Alignment options",
       "type": "fixed_value",
-      "value": "",
+      "value": "defaults",
       "extra": {
         "title_display": "before",
         "description": "",
@@ -2475,7 +2475,7 @@
       "form_key": "step_7_95",
       "name": "Scoring options",
       "type": "fixed_value",
-      "value": "",
+      "value": "defaults",
       "extra": {
         "title_display": "before",
         "description": "",
@@ -2623,7 +2623,7 @@
       "form_key": "step_7_109",
       "name": "Spliced alignment options",
       "type": "fixed_value",
-      "value": "",
+      "value": "defaults",
       "extra": {
         "title_display": "before",
         "description": "",
@@ -2954,7 +2954,7 @@
       "form_key": "step_7_126",
       "name": "Reporting options",
       "type": "fixed_value",
-      "value": "",
+      "value": "defaults",
       "extra": {
         "title_display": "before",
         "description": "",
@@ -2981,7 +2981,7 @@
       "form_key": "step_7_130",
       "name": "Output options",
       "type": "fixed_value",
-      "value": "",
+      "value": "defaults",
       "extra": {
         "title_display": "before",
         "description": "",
@@ -3008,7 +3008,7 @@
       "form_key": "step_7_133",
       "name": "Other options",
       "type": "fixed_value",
-      "value": "",
+      "value": "defaults",
       "extra": {
         "title_display": "before",
         "description": "",
